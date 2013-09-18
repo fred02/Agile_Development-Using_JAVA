@@ -15,5 +15,7 @@ public class ProjetSoumission_Assurance {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        
     }
 }

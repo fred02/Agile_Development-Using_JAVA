@@ -1,6 +1,6 @@
 /*
  * To change this template, choose Tools | Templates
- * and open the template in the editor.test
+ * and open the template in the editor. COMMIT TEST
  */
 package projet.soumission_assurance;
 

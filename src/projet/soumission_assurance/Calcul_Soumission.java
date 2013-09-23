@@ -9,6 +9,7 @@ import java.util.*;
 import java.text.*;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -31,35 +32,49 @@ public class Calcul_Soumission {
      */
     public static void main(String[] args) throws FileNotFoundException, IOException, SQLException, ParseException {
 
-
+        //vérifie que le nombre d'arguments entrés est suffisant 
+        //syntaxe: java -jar dist/Projet-Soumission_Assurance.jar nom_fichier_entree.json nom_fichier_sortie.json
+        if(args.length<2)
+        {
+            System.out.println("Nombre d'arguments insuffisants");
+            return;
+        }
 
         // instructions pour lire le fichier qui contient les infos sur les voitures admissibles
         BufferedReader infoVoiture, fichEntree;
         infoVoiture = new BufferedReader(
-                new FileReader(new File("VoituresAdmissibles.json")));
+                new FileReader(new File("json/voitures.json")));
+        
         // instructions pour lire le fichier d'entree
         fichEntree = new BufferedReader(
-                new FileReader(new File("fichierEntree1.json")));
-
-
-        // lire tant qu'on a pas atteint la fin du fichier "VoituresAdmissibles.json"
+                new FileReader(new File(args[0])));
+                //new FileReader(new File("json/fichierEntree1.json")));
+      
+        // lire tant qu'on a pas atteint la fin du fichier des voitures admissibles
         String voitureAdmissJsonText = "";
         String line = "";
         while ((line = infoVoiture.readLine()) != null) {
             voitureAdmissJsonText += line;
         }
+        
+        //Fermeture du fichier des voitures admissibles
+        infoVoiture.close();
 
         // affichage du contenu du fichier json
-        //System.out.println(voitureAdmiss);
+        //System.out.println(voitureAdmissJsonText);
 
-        // lire tant qu'on a pas atteint la fin du fichier "fichierEntree1.json"
+        // lire tant qu'on a pas atteint la fin du fichier d'entrée
         String donneeEntreeJsonText = "";
         String lineEntree = "";
         while ((lineEntree = fichEntree.readLine()) != null) {
             donneeEntreeJsonText += lineEntree;
         }
+        
+        //Fermeture du fichier d'entrée
+        fichEntree.close();
+        
         //System.out.println(donneeEntreeJsonText);
-
+        
 
         // declaration du tableau qui va contenir la chaine de caractere lue dans le fichier
         // qui contient la liste des voitures assurables
@@ -81,11 +96,11 @@ public class Calcul_Soumission {
 
 
         // declaration des variables de l'objet voiture
+        int annee = voiture.getInt("annee");
         String marque = voiture.getString("marque");
         String modele = voiture.getString("modele");
         String burinage = voiture.getString("burinage");
         int valeur_des_options = voiture.getInt("valeur_des_options");
-        int annee = voiture.getInt("annee");
         boolean garage_interieur = voiture.getBoolean("garage_interieur");
         boolean systeme_alarme = voiture.getBoolean("systeme_alarme");
 
@@ -98,19 +113,21 @@ public class Calcul_Soumission {
         boolean cours_de_conduite_reconnus_par_CAA = conducteur.getBoolean("cours_de_conduite_reconnus_par_CAA");
         boolean premier_contrat = conducteur.getBoolean("premier_contrat");
 
-
-
-
-
+        
         float valInitilaVoit = 0; // valeur initiale du vehicule
 
 
         for (int j = 0; j < root.size(); j++) {
 
             JSONObject document = root.getJSONObject(j);
-            if ((document.getString("modele").compareTo(modele) == 0)) {
-                valInitilaVoit = document.getInt("valInit");
-                System.out.println("La valeur initiale est: " + valInitilaVoit);
+            if ((document.getInt("annee")==annee)) { //Si on ajoute des années autre que 2014
+                if ((document.getString("marque").compareTo(marque) == 0)) { //Si on ajoute des marques autre que "Porsche"
+                    if ((document.getString("modele").compareTo(modele) == 0)) {
+                        valInitilaVoit = document.getInt("valInit");
+                        j=root.size();//ferme la boucle
+                        //System.out.println("La valeur initiale est: " + valInitilaVoit);
+                    }
+                }
             }
         }
 
@@ -133,7 +150,7 @@ public class Calcul_Soumission {
         java.util.Date DateFinCours;
         DateFinCours = formatAMJ.parse(date_fin_cours_de_conduite);
 
-        System.out.println("La chaine de caractere represente : " + formatAMJ.format(DDN));
+        //System.out.println("La chaine de caractere represente : " + formatAMJ.format(DDN));
 
 
 
@@ -168,11 +185,30 @@ public class Calcul_Soumission {
                  garage_interieur, systeme_alarme, premier_contrat, ville, sexe, 
                  cours_de_conduite_reconnus_par_CAA, diffAgeJour, diffExpJour);
 
-        System.out.println("Montant annuel : " + ValRet);
+        //System.out.println("montant_annuel : " + ValRet);
         mensualite = (float) ((ValRet + (ValRet * 0.015)) / 12);
-        System.out.println("Mensualite : " + mensualite);
+        //System.out.println("Mensualite : " + mensualite);
 
-
+        
+        boolean assurable=true; // Validation d'assurabilité à faire
+        
+        BufferedWriter fichSortie = new BufferedWriter(new FileWriter(new File(args[1])));
+        String donneeSortieJsonText="";
+        
+        JSONObject jsonSortie=new JSONObject();
+        jsonSortie.accumulate("assurable",assurable);
+        if(assurable)
+        {
+            jsonSortie.accumulate("montant_annuel",ValRet);
+            jsonSortie.accumulate("mensualite",mensualite);
+        }
+        
+        donneeSortieJsonText=jsonSortie.toString();
+        
+        //System.out.println(donneeSortieJsonText);
+        
+        fichSortie.append(donneeSortieJsonText);
+        fichSortie.close();
 
     } // fin main 
 

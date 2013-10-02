@@ -94,24 +94,26 @@ public class Calcul_Soumission {
         // declaration de la variable durContrat qui recevra la duree du contrat
         int durContrat = json.getInt("duree_contrat");
 
-
+        Voiture voiture1 = new Voiture();
+        
         // declaration des variables de l'objet voiture
-        int annee = voiture.getInt("annee");
-        String marque = voiture.getString("marque");
-        String modele = voiture.getString("modele");
-        String burinage = voiture.getString("burinage");
-        int valeur_des_options = voiture.getInt("valeur_des_options");
-        boolean garage_interieur = voiture.getBoolean("garage_interieur");
-        boolean systeme_alarme = voiture.getBoolean("systeme_alarme");
+        voiture1.annee = voiture.getInt("annee");
+        voiture1.marque = voiture.getString("marque");
+        voiture1.modele = voiture.getString("modele");
+        voiture1.burinage = voiture.getString("burinage");
+        voiture1.valeur_des_options = voiture.getInt("valeur_des_options");
+        voiture1.garage_interieur = voiture.getBoolean("garage_interieur");
+        voiture1.systeme_alarme = voiture.getBoolean("systeme_alarme");
 
+        Conducteur conducteur1 = new Conducteur();
         // declaration des variables de l'objet conducteur
-        String date_de_naissance = conducteur.getString("date_de_naissance");
-        String province = conducteur.getString("province");
-        String ville = conducteur.getString("ville");
-        String sexe = conducteur.getString("sexe");
-        String date_fin_cours_de_conduite = conducteur.getString("date_fin_cours_de_conduite");
-        boolean cours_de_conduite_reconnus_par_CAA = conducteur.getBoolean("cours_de_conduite_reconnus_par_CAA");
-        boolean premier_contrat = conducteur.getBoolean("premier_contrat");
+        conducteur1.date_de_naissance = conducteur.getString("date_de_naissance");
+        conducteur1.province = conducteur.getString("province");
+        conducteur1.ville = conducteur.getString("ville");
+        conducteur1.sexe = conducteur.getString("sexe");
+        conducteur1.date_fin_cours_de_conduite = conducteur.getString("date_fin_cours_de_conduite");
+        conducteur1.cours_de_conduite_reconnus_par_CAA = conducteur.getBoolean("cours_de_conduite_reconnus_par_CAA");
+        conducteur1.premier_contrat = conducteur.getBoolean("premier_contrat");
 
         
         float valInitilaVoit = 0; // valeur initiale du vehicule
@@ -120,9 +122,9 @@ public class Calcul_Soumission {
         for (int j = 0; j < root.size(); j++) {
 
             JSONObject document = root.getJSONObject(j);
-            if ((document.getInt("annee")==annee)) { //Si on ajoute des années autre que 2014
-                if ((document.getString("marque").compareTo(marque) == 0)) { //Si on ajoute des marques autre que "Porsche"
-                    if ((document.getString("modele").compareTo(modele) == 0)) {
+            if ((document.getInt("annee")==voiture1.annee)) { //Si on ajoute des années autre que 2014
+                if ((document.getString("marque").compareTo(voiture1.marque) == 0)) { //Si on ajoute des marques autre que "Porsche"
+                    if ((document.getString("modele").compareTo(voiture1.modele) == 0)) {
                         valInitilaVoit = document.getInt("valInit");
                         j=root.size();//ferme la boucle
                         //System.out.println("La valeur initiale est: " + valInitilaVoit);
@@ -144,11 +146,11 @@ public class Calcul_Soumission {
 
         // conversion de la date de naissance en format string pour un format Date
         java.util.Date DDN;
-        DDN = formatAMJ.parse(date_de_naissance);
+        DDN = formatAMJ.parse(conducteur1.date_de_naissance);
 
         // conversion de la date de fin du cours en format string pour un format Date
         java.util.Date DateFinCours;
-        DateFinCours = formatAMJ.parse(date_fin_cours_de_conduite);
+        DateFinCours = formatAMJ.parse(conducteur1.date_fin_cours_de_conduite);
 
         //System.out.println("La chaine de caractere represente : " + formatAMJ.format(DDN));
 
@@ -181,9 +183,7 @@ public class Calcul_Soumission {
 
         // appel de la methode calculSoumission qui va retourner la valeur de la soumission
         float ValRet, mensualite;
-        ValRet = calculSoumission(durContrat, valInitilaVoit, valeur_des_options, burinage, 
-                 garage_interieur, systeme_alarme, premier_contrat, ville, sexe, 
-                 cours_de_conduite_reconnus_par_CAA, diffAgeJour, diffExpJour);
+        ValRet = calculSoumission(durContrat, valInitilaVoit, voiture1, conducteur1, diffAgeJour, diffExpJour);
 
         //System.out.println("montant_annuel : " + ValRet);
         mensualite = (float) ((ValRet + (ValRet * 0.015)) / 12);
@@ -217,9 +217,7 @@ public class Calcul_Soumission {
      * @retour : valeur soumission
      * @param : 
      */
-    public static float calculSoumission(int durContrat, float valInitilaVoit, int valeur_des_options,
-            String burinage, boolean garage_interieur, boolean systeme_alarme, boolean premier_contrat, 
-            String ville, String sexe, boolean cours_de_conduite_reconnus_par_CAA, double diffAgeJour, 
+    public static float calculSoumission(int durContrat, float valInitilaVoit, Voiture voitureDuDemandant, Conducteur Demandant, double diffAgeJour, 
             double diffExpJour) {
 
         // calcul de la soumission
@@ -230,35 +228,35 @@ public class Calcul_Soumission {
             valCumul -= ((valCumul * 15) / 100);
         }
 
-        valCumul = (float) (valCumul + ((float) valeur_des_options * 0.10));
+        valCumul = (float) (valCumul + ((float) voitureDuDemandant.valeur_des_options * 0.10));
 
-        if ((ville.compareTo("Montréal") == 0) || (ville.compareTo("Longueuil") == 0)) {
+        if ((Demandant.ville.compareTo("Montréal") == 0) || (Demandant.ville.compareTo("Longueuil") == 0)) {
             valCumul += 200;
         }
 
-        if (burinage.compareTo("Sherlock") == 0) {
+        if (voitureDuDemandant.burinage.compareTo("Sherlock") == 0) {
             valCumul += 250;
         }
-        if (sexe.compareTo("F") == 0) {
+        if (Demandant.sexe.compareTo("F") == 0) {
             valCumul -= 1000;
         }
-        if (garage_interieur == true) {
+        if (voitureDuDemandant.garage_interieur == true) {
             valCumul -= 500;
         }
 
-        if (systeme_alarme == true) {
+        if (voitureDuDemandant.systeme_alarme == true) {
             valCumul -= 500;
         }
 
-        if (cours_de_conduite_reconnus_par_CAA == true) {
+        if (Demandant.cours_de_conduite_reconnus_par_CAA == true) {
             valCumul -= 100;
         }
-        if ((diffAgeJour < (35 * 365)) && (sexe.compareTo("M") == 0)) {
+        if ((diffAgeJour < (35 * 365)) && (Demandant.sexe.compareTo("M") == 0)) {
             valCumul += 1000;
 
         }
 
-        if (premier_contrat == true) {
+        if (Demandant.premier_contrat == true) {
             valCumul += 2000;
         }
         valRetour = valCumul;

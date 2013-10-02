@@ -10,14 +10,16 @@ package projet.soumission_assurance;
  */
 public class Conducteur {
     
+    public Conducteur(){}
+    public String date_de_naissance;
+    public String province;
+    public String ville;
+    public String sexe;
+    public String date_fin_cours_de_conduite;
+    public boolean cours_de_conduite_reconnus_par_CAA;
+    public boolean premier_contrat;
     
-    /*
-     * @fonction 
-     * fonction qui va retourner 
-     * @parametre : 
-     * @valeur retour : 
-     */
-    boolean validerAdmissConducteur (String province,char sexe,int age)
+    /*boolean validerAdmissConducteur (String province,char sexe,int age)
     {
     
          boolean valide =true;
@@ -43,6 +45,6 @@ public class Conducteur {
          }
     
          return valide;
-    }
+    }*/
     
 } // classe Conducteur

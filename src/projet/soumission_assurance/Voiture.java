@@ -14,15 +14,51 @@ public class Voiture {
      * il se peut que la declaration de ces variables soit inutile
      */
     
-    public Voiture(){}
-    public int annee;
-    public String marque;
-    public String modele;
-    public int valeur_des_options;
-    public String burinage;
-    public boolean garage_interieur;
-    public boolean systeme_alarme;
+    private int annee;
+    private String marque;
+    private String modele;
+    private int valeur_des_options;
+    private String burinage;
+    private boolean garage_interieur;
+    private boolean systeme_alarme;
     
+    public Voiture(int a, String ma, String mo, int v, String b, boolean g, boolean s){
+        annee = a; 
+        marque = ma; 
+        modele = mo; 
+        valeur_des_options = v; 
+        burinage = b; 
+        garage_interieur = g; 
+        systeme_alarme = s;
+    }
+    
+    public int getAnnee(){
+        return annee;
+    }
+    
+    public String getMarque(){
+        return marque;
+    }
+    
+    public String getModele(){
+        return modele;
+    }
+    
+    public int getValeur_des_options(){
+        return valeur_des_options;
+    }
+    
+    public String getBurinage(){
+        return burinage;
+    }
+    
+    public boolean getGarage_interieur(){
+        return garage_interieur;
+    }
+    
+    public boolean getSysteme_alarme(){
+        return systeme_alarme;
+    }
     
     /*
      * @fonction validerVehicule

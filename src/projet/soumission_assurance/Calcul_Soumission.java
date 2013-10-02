@@ -39,43 +39,14 @@ public class Calcul_Soumission {
             System.out.println("Nombre d'arguments insuffisants");
             return;
         }
-
-        // instructions pour lire le fichier qui contient les infos sur les voitures admissibles
-        BufferedReader infoVoiture, fichEntree;
-        infoVoiture = new BufferedReader(
-                new FileReader(new File("json/voitures.json")));
+       
+        String fileVoiture = "json/voitures.json";
+        String fileDemande = args[0];
         
-        // instructions pour lire le fichier d'entree
-        fichEntree = new BufferedReader(
-                new FileReader(new File(args[0])));
-                //new FileReader(new File("json/fichierEntree1.json")));
-      
-        // lire tant qu'on a pas atteint la fin du fichier des voitures admissibles
-        String voitureAdmissJsonText = "";
-        String line = "";
-        while ((line = infoVoiture.readLine()) != null) {
-            voitureAdmissJsonText += line;
-        }
-        
-        //Fermeture du fichier des voitures admissibles
-        infoVoiture.close();
-
-        // affichage du contenu du fichier json
-        //System.out.println(voitureAdmissJsonText);
-
-        // lire tant qu'on a pas atteint la fin du fichier d'entrée
-        String donneeEntreeJsonText = "";
-        String lineEntree = "";
-        while ((lineEntree = fichEntree.readLine()) != null) {
-            donneeEntreeJsonText += lineEntree;
-        }
-        
-        //Fermeture du fichier d'entrée
-        fichEntree.close();
-        
-        //System.out.println(donneeEntreeJsonText);
-        
-
+        String voitureAdmissJsonText = lecteurJSON(fileVoiture);
+        String donneeEntreeJsonText = lecteurJSON(fileDemande);
+                
+/////////////////////////////////        
         // declaration du tableau qui va contenir la chaine de caractere lue dans le fichier
         // qui contient la liste des voitures assurables
         JSONArray root;
@@ -94,37 +65,33 @@ public class Calcul_Soumission {
         // declaration de la variable durContrat qui recevra la duree du contrat
         int durContrat = json.getInt("duree_contrat");
 
-        Voiture voiture1 = new Voiture();
+////////////////        
         
+        Voiture voiture1 = new Voiture(voiture.getInt("annee"),
+                voiture.getString("marque"),
+                voiture.getString("modele"),
+                voiture.getInt("valeur_des_options"),
+                voiture.getString("burinage"),
+                voiture.getBoolean("garage_interieur"),
+                voiture.getBoolean("systeme_alarme"));
         // declaration des variables de l'objet voiture
-        voiture1.annee = voiture.getInt("annee");
-        voiture1.marque = voiture.getString("marque");
-        voiture1.modele = voiture.getString("modele");
-        voiture1.burinage = voiture.getString("burinage");
-        voiture1.valeur_des_options = voiture.getInt("valeur_des_options");
-        voiture1.garage_interieur = voiture.getBoolean("garage_interieur");
-        voiture1.systeme_alarme = voiture.getBoolean("systeme_alarme");
 
-        Conducteur conducteur1 = new Conducteur();
-        // declaration des variables de l'objet conducteur
-        conducteur1.date_de_naissance = conducteur.getString("date_de_naissance");
-        conducteur1.province = conducteur.getString("province");
-        conducteur1.ville = conducteur.getString("ville");
-        conducteur1.sexe = conducteur.getString("sexe");
-        conducteur1.date_fin_cours_de_conduite = conducteur.getString("date_fin_cours_de_conduite");
-        conducteur1.cours_de_conduite_reconnus_par_CAA = conducteur.getBoolean("cours_de_conduite_reconnus_par_CAA");
-        conducteur1.premier_contrat = conducteur.getBoolean("premier_contrat");
-
+        Conducteur conducteur1 = new Conducteur(conducteur.getString("date_de_naissance"),
+                conducteur.getString("province"),
+                conducteur.getString("ville"),
+                conducteur.getString("sexe"),
+                conducteur.getString("date_fin_cours_de_conduite"),
+                conducteur.getBoolean("cours_de_conduite_reconnus_par_CAA"),
+                conducteur.getBoolean("premier_contrat"));
         
         float valInitilaVoit = 0; // valeur initiale du vehicule
-
 
         for (int j = 0; j < root.size(); j++) {
 
             JSONObject document = root.getJSONObject(j);
-            if ((document.getInt("annee")==voiture1.annee)) { //Si on ajoute des années autre que 2014
-                if ((document.getString("marque").compareTo(voiture1.marque) == 0)) { //Si on ajoute des marques autre que "Porsche"
-                    if ((document.getString("modele").compareTo(voiture1.modele) == 0)) {
+            if ((document.getInt("annee") == voiture1.getAnnee())) { //Si on ajoute des années autre que 2014
+                if ((document.getString("marque").compareTo(voiture1.getMarque()) == 0)) { //Si on ajoute des marques autre que "Porsche"
+                    if ((document.getString("modele").compareTo(voiture1.getModele()) == 0)) {
                         valInitilaVoit = document.getInt("valInit");
                         j=root.size();//ferme la boucle
                         //System.out.println("La valeur initiale est: " + valInitilaVoit);
@@ -146,11 +113,11 @@ public class Calcul_Soumission {
 
         // conversion de la date de naissance en format string pour un format Date
         java.util.Date DDN;
-        DDN = formatAMJ.parse(conducteur1.date_de_naissance);
+        DDN = formatAMJ.parse(conducteur1.getDate_de_naissance());
 
         // conversion de la date de fin du cours en format string pour un format Date
         java.util.Date DateFinCours;
-        DateFinCours = formatAMJ.parse(conducteur1.date_fin_cours_de_conduite);
+        DateFinCours = formatAMJ.parse(conducteur1.getDate_fin_cours_de_conduite());
 
         //System.out.println("La chaine de caractere represente : " + formatAMJ.format(DDN));
 
@@ -228,35 +195,35 @@ public class Calcul_Soumission {
             valCumul -= ((valCumul * 15) / 100);
         }
 
-        valCumul = (float) (valCumul + ((float) voitureDuDemandant.valeur_des_options * 0.10));
+        valCumul = (float) (valCumul + ((float) voitureDuDemandant.getValeur_des_options() * 0.10));
 
-        if ((Demandant.ville.compareTo("Montréal") == 0) || (Demandant.ville.compareTo("Longueuil") == 0)) {
+        if ((Demandant.getVille().compareTo("Montréal") == 0) || (Demandant.getVille().compareTo("Longueuil") == 0)) {
             valCumul += 200;
         }
 
-        if (voitureDuDemandant.burinage.compareTo("Sherlock") == 0) {
+        if (voitureDuDemandant.getBurinage().compareTo("Sherlock") == 0) {
             valCumul += 250;
         }
-        if (Demandant.sexe.compareTo("F") == 0) {
+        if (Demandant.getSexe().compareTo("F") == 0) {
             valCumul -= 1000;
         }
-        if (voitureDuDemandant.garage_interieur == true) {
+        if (voitureDuDemandant.getGarage_interieur() == true) {
             valCumul -= 500;
         }
 
-        if (voitureDuDemandant.systeme_alarme == true) {
+        if (voitureDuDemandant.getSysteme_alarme() == true) {
             valCumul -= 500;
         }
 
-        if (Demandant.cours_de_conduite_reconnus_par_CAA == true) {
+        if (Demandant.getCours_de_conduite_reconnus_par_CAA() == true) {
             valCumul -= 100;
         }
-        if ((diffAgeJour < (35 * 365)) && (Demandant.sexe.compareTo("M") == 0)) {
+        if ((diffAgeJour < (35 * 365)) && (Demandant.getSexe().compareTo("M") == 0)) {
             valCumul += 1000;
 
         }
 
-        if (Demandant.premier_contrat == true) {
+        if (Demandant.getPremier_contrat() == true) {
             valCumul += 2000;
         }
         valRetour = valCumul;
@@ -269,5 +236,24 @@ public class Calcul_Soumission {
 
         return valRetour;
     } // fin fonction calculSoumission
-} // fin classe Calcul_Soumission
 
+public static String lecteurJSON(String path) throws FileNotFoundException, IOException {
+    String contenu = "";
+    String line = "";
+    BufferedReader fichierJSON;
+        
+        fichierJSON = new BufferedReader(
+                new FileReader(new File(path)));
+      
+        // lire tant qu'on a pas atteint la fin du fichier des voitures admissibles
+        while ((line = fichierJSON.readLine()) != null) {
+            contenu += line;
+        }
+        
+        //Fermeture du fichier des voitures admissibles
+        fichierJSON.close();
+    return contenu;
+
+}
+
+} // fin classe Calcul_Soumission

@@ -10,15 +10,51 @@ package projet.soumission_assurance;
  */
 public class Conducteur {
     
-    public Conducteur(){}
-    public String date_de_naissance;
-    public String province;
-    public String ville;
-    public String sexe;
-    public String date_fin_cours_de_conduite;
-    public boolean cours_de_conduite_reconnus_par_CAA;
-    public boolean premier_contrat;
+    private String date_de_naissance;
+    private String province;
+    private String ville;
+    private String sexe;
+    private String date_fin_cours_de_conduite;
+    private boolean cours_de_conduite_reconnus_par_CAA;
+    private boolean premier_contrat;
     
+    public Conducteur(String d, String p, String v, String s, String da, boolean c, boolean pc){
+        date_de_naissance = d;
+        province = p;
+        ville = v;
+        sexe = s;
+        date_fin_cours_de_conduite = da;
+        cours_de_conduite_reconnus_par_CAA = c;
+        premier_contrat =pc;
+    } 
+    
+    public String getDate_de_naissance(){
+        return date_de_naissance;
+    }
+    
+    public String getProvince(){
+        return province;
+    }
+    
+    public String getVille(){
+        return ville;
+    }
+    
+    public String getSexe(){
+        return sexe;
+    }
+    
+    public String getDate_fin_cours_de_conduite(){
+        return date_fin_cours_de_conduite;
+    }
+    
+    public boolean getCours_de_conduite_reconnus_par_CAA(){
+        return cours_de_conduite_reconnus_par_CAA;
+    }
+    
+    public boolean getPremier_contrat(){
+        return premier_contrat;
+    }
     /*boolean validerAdmissConducteur (String province,char sexe,int age)
     {
     

@@ -20,24 +20,26 @@ public class Index {
         Soumission<ArrayList> soumission1 = new Soumission<ArrayList>(JsonReader.LoadFile(args[0]));
         
         if (Conducteur.ageValide(soumission1) && testDureeContrat(soumission1.getDuree_contrat())){
-            calculPrix(soumission1);
+            double total=calculPrix(soumission1);
+            double mensualite=calculMensualite(total);
+            JsonWriter.ecriture(true,total,mensualite, fichierEcriture);
         }else{
             JsonWriter.ecriture(false,0,0, fichierEcriture);
         }
         
-        soumission1.display();
+        //soumission1.display();
     }
 
     public static boolean testDureeContrat(int duree){
 
-        if (duree == 1 || duree == 2 || duree == 3){
+        if (duree >= 1 && duree <= 3){
             return true;
         }else{
             return false;
         }
     }
     
-    public static void calculPrix(Soumission<ArrayList> soumission1) throws FileNotFoundException, IOException{
+    public static double calculPrix(Soumission<ArrayList> soumission1) throws FileNotFoundException, IOException{
         double total;
         int prixDuVehicule = Voiture.prixDuVehicule(soumission1);
 
@@ -76,14 +78,14 @@ public class Index {
         if (soumission1.GetExperience() > 15){
             total -= 400;
         }
-                System.out.println(total);
-        calculMensualite(total);
+                //System.out.println(total);
+        return total;
     }
     
-    public static void calculMensualite(double total){
+    public static double calculMensualite(double total){
         double mensualite;
         mensualite = (total * 1.015)/12;
         
-        JsonWriter.ecriture(true,total,mensualite, fichierEcriture);
+        return mensualite;
     }
 }

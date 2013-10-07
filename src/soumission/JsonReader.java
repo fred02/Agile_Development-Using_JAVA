@@ -23,7 +23,7 @@ public class JsonReader {
            
             soumission1 = new Soumission<ArrayList>();
        
-            String jsonTxt = JsonParsing.loadFileIntoString("src/soumission/Json/fichierEntree1.json", "UTF-8");
+            String jsonTxt = JsonParsing.loadFileIntoString(fichierEntree, "UTF-8");
 
             JSONObject root = (JSONObject) JSONSerializer.toJSON(jsonTxt);
             

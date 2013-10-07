@@ -22,7 +22,7 @@ public class JsonReader {
         public static Soumission<ArrayList> LoadFile(String fichierEntree)  throws FileNotFoundException, IOException {
            
             soumission1 = new Soumission<ArrayList>();
-            
+       
             String jsonTxt = JsonParsing.loadFileIntoString("src/soumission/Json/fichierEntree1.json", "UTF-8");
 
             JSONObject root = (JSONObject) JSONSerializer.toJSON(jsonTxt);

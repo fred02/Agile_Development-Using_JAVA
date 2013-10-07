@@ -18,7 +18,7 @@ public class JsonWriter {
     /**
      * @param args the command line arguments
      */
-    public static void ecriture(boolean assurable, double total, double mensualite,String fichierS){
+    public static void ecriture(boolean assurable, double total, double mensualite, String fichierSortie){
         JSONObject obj = new JSONObject();
 	obj.put("assurable", assurable);
 	obj.put("montant_annuel", total);
@@ -27,7 +27,7 @@ public class JsonWriter {
  
 	try {
  
-		FileWriter file = new FileWriter(fichierS);
+		FileWriter file = new FileWriter(fichierSortie);
 		file.write(obj.toString());
 		file.flush();
 		file.close();

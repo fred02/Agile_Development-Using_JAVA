@@ -8,43 +8,25 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-/**
- *
- * @author Revold
- */
+//syntaxe: java -jar dist/Projet-Soumission_Assurance.jar src\soumission\json\fichierEntree1.json src\soumission\json\fichierSortie1.json
+
 public class Index {
 
-    /**
-     * @param args the command line arguments
-     */
+    static String fichierEcriture;
     public static void main(String[] args)  throws FileNotFoundException, IOException {
         
-        
-        // pour faire rouler le programme en ligne de commande il faut taper
-        // java -jar dist/Projet-Soumission_Assurance.jar fichierEntree1.json le_nom_de_votre_choix.json
-        if (args.length < 2) {
-            System.out.println("Nombre d'arguments insuffisants !! ");
-            return;
-        }
-        
-        args[0] = "src/soumission/Json/fichierEntree1.json";
-        String fichierSortieJson = args[1];         
-        
+         fichierEcriture = args[1];
         
         Soumission<ArrayList> soumission1 = new Soumission<ArrayList>(JsonReader.LoadFile(args[0]));
         
-        double valSoumission = 0;
         if (Conducteur.ageValide(soumission1) && testDureeContrat(soumission1.getDuree_contrat())){
-            valSoumission = calculPrix(soumission1);
+            calculPrix(soumission1);
         }else{
-            JsonWriter.ecriture(false,0,0,null);
+            JsonWriter.ecriture(false,0,0, fichierEcriture);
         }
-         
-        double mensualite = (valSoumission * 1.015)/12;
-        JsonWriter.ecriture(true,valSoumission ,mensualite,fichierSortieJson);
-        soumission1.display();
         
-    } // fin main
+        soumission1.display();
+    }
 
     public static boolean testDureeContrat(int duree){
 
@@ -55,14 +37,7 @@ public class Index {
         }
     }
     
-    /**
-     *
-     * @param soumission1
-     * @return
-     * @throws FileNotFoundException
-     * @throws IOException
-     */
-    public static double calculPrix(Soumission<ArrayList> soumission1) throws FileNotFoundException, IOException{
+    public static void calculPrix(Soumission<ArrayList> soumission1) throws FileNotFoundException, IOException{
         double total;
         int prixDuVehicule = Voiture.prixDuVehicule(soumission1);
 
@@ -102,16 +77,13 @@ public class Index {
             total -= 400;
         }
                 System.out.println(total);
-        return total;
+        calculMensualite(total);
     }
     
-    
-//    public static void calculMensualite(double total){
-//        double mensualite;
-//        mensualite = (total * 1.015)/12;
-//        JsonWriter.ecriture(true,total,mensualite,fichierSortieJson);
-//    }
-    
-    
-    
+    public static void calculMensualite(double total){
+        double mensualite;
+        mensualite = (total * 1.015)/12;
+        
+        JsonWriter.ecriture(true,total,mensualite, fichierEcriture);
+    }
 }

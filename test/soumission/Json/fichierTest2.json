@@ -1,0 +1,21 @@
+{
+    "voiture": {
+        "annee": 2014,
+        "marque": "Porsche",
+        "modele": "Panamera Turbo Executive",
+        "valeur_des_options": 10000.00,
+        "burinage": "PROACTIF",
+        "garage_interieur": true,
+        "systeme_alarme": true
+    },
+    "conducteur": {
+        "date_de_naissance": "1981-03-21",
+        "province": "Québec",
+        "ville": "Ottawa",
+        "sexe": "M",
+        "date_fin_cours_de_conduite": "2003-12-01",
+        "cours_de_conduite_reconnus_par_CAA": true,
+        "premier_contrat": true
+    },
+    "duree_contrat": 3
+}

@@ -1,0 +1,21 @@
+{
+    "voiture": {
+        "annee": 2014,
+        "marque": "Porsche",
+        "modele": "911 50 ans",
+        "valeur_des_options": 6000.00,
+        "burinage": "Sherlock",
+        "garage_interieur": false,
+        "systeme_alarme": false
+    },
+    "conducteur": {
+        "date_de_naissance": "1973-02-05",
+        "province": "Québec",
+        "ville": "Longueuil",
+        "sexe": "F",
+        "date_fin_cours_de_conduite": "1999-02-01",
+        "cours_de_conduite_reconnus_par_CAA": true,
+        "premier_contrat": true
+    },
+    "duree_contrat": 3
+}

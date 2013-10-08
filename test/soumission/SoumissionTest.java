@@ -54,19 +54,6 @@ public class SoumissionTest {
     }
 
     /**
-     * Test of setAnnee method, of class Soumission.
-     */
-    @Test
-    public void testSetAnnee() {
-        System.out.println("setAnnee");
-        int annee = 0;
-        Soumission instance = new Soumission();
-        instance.setAnnee(annee);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of getMarque method, of class Soumission.
      */
     @Test
@@ -76,19 +63,6 @@ public class SoumissionTest {
         String expResult = "";
         String result = instance.getMarque();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setMarque method, of class Soumission.
-     */
-    @Test
-    public void testSetMarque() {
-        System.out.println("setMarque");
-        String marque = "";
-        Soumission instance = new Soumission();
-        instance.setMarque(marque);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -108,19 +82,6 @@ public class SoumissionTest {
     }
 
     /**
-     * Test of setModele method, of class Soumission.
-     */
-    @Test
-    public void testSetModele() {
-        System.out.println("setModele");
-        String modele = "";
-        Soumission instance = new Soumission();
-        instance.setModele(modele);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of getValeur_des_options method, of class Soumission.
      */
     @Test
@@ -130,19 +91,6 @@ public class SoumissionTest {
         int expResult = 0;
         int result = instance.getValeur_des_options();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setValeur_des_options method, of class Soumission.
-     */
-    @Test
-    public void testSetValeur_des_options() {
-        System.out.println("setValeur_des_options");
-        int valeur_des_options = 0;
-        Soumission instance = new Soumission();
-        instance.setValeur_des_options(valeur_des_options);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -162,19 +110,6 @@ public class SoumissionTest {
     }
 
     /**
-     * Test of setBurinage method, of class Soumission.
-     */
-    @Test
-    public void testSetBurinage() {
-        System.out.println("setBurinage");
-        String burinage = "";
-        Soumission instance = new Soumission();
-        instance.setBurinage(burinage);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of isGarage_interieur method, of class Soumission.
      */
     @Test
@@ -184,19 +119,6 @@ public class SoumissionTest {
         boolean expResult = false;
         boolean result = instance.isGarage_interieur();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setGarage_interieur method, of class Soumission.
-     */
-    @Test
-    public void testSetGarage_interieur() {
-        System.out.println("setGarage_interieur");
-        boolean garage_interieur = false;
-        Soumission instance = new Soumission();
-        instance.setGarage_interieur(garage_interieur);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -216,19 +138,6 @@ public class SoumissionTest {
     }
 
     /**
-     * Test of setSysteme_alarme method, of class Soumission.
-     */
-    @Test
-    public void testSetSysteme_alarme() {
-        System.out.println("setSysteme_alarme");
-        boolean systeme_alarme = false;
-        Soumission instance = new Soumission();
-        instance.setSysteme_alarme(systeme_alarme);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of getDate_de_naissance method, of class Soumission.
      */
     @Test
@@ -238,19 +147,6 @@ public class SoumissionTest {
         String expResult = "";
         String result = instance.getDate_de_naissance();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setDate_de_naissance method, of class Soumission.
-     */
-    @Test
-    public void testSetDate_de_naissance() {
-        System.out.println("setDate_de_naissance");
-        String date_de_naissance = "";
-        Soumission instance = new Soumission();
-        instance.setDate_de_naissance(date_de_naissance);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -298,19 +194,6 @@ public class SoumissionTest {
     }
 
     /**
-     * Test of setProvince method, of class Soumission.
-     */
-    @Test
-    public void testSetProvince() {
-        System.out.println("setProvince");
-        String province = "";
-        Soumission instance = new Soumission();
-        instance.setProvince(province);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of getVille method, of class Soumission.
      */
     @Test
@@ -320,19 +203,6 @@ public class SoumissionTest {
         String expResult = "";
         String result = instance.getVille();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setVille method, of class Soumission.
-     */
-    @Test
-    public void testSetVille() {
-        System.out.println("setVille");
-        String ville = "";
-        Soumission instance = new Soumission();
-        instance.setVille(ville);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -352,19 +222,6 @@ public class SoumissionTest {
     }
 
     /**
-     * Test of setSexe method, of class Soumission.
-     */
-    @Test
-    public void testSetSexe() {
-        System.out.println("setSexe");
-        char sexe = ' ';
-        Soumission instance = new Soumission();
-        instance.setSexe(sexe);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of getDate_fin_cours_de_conduite method, of class Soumission.
      */
     @Test
@@ -374,19 +231,6 @@ public class SoumissionTest {
         String expResult = "";
         String result = instance.getDate_fin_cours_de_conduite();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setDate_fin_cours_de_conduite method, of class Soumission.
-     */
-    @Test
-    public void testSetDate_fin_cours_de_conduite() {
-        System.out.println("setDate_fin_cours_de_conduite");
-        String date_fin_cours_de_conduite = "";
-        Soumission instance = new Soumission();
-        instance.setDate_fin_cours_de_conduite(date_fin_cours_de_conduite);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -434,19 +278,6 @@ public class SoumissionTest {
     }
 
     /**
-     * Test of setCours_de_conduite_reconnus_par_CAA method, of class Soumission.
-     */
-    @Test
-    public void testSetCours_de_conduite_reconnus_par_CAA() {
-        System.out.println("setCours_de_conduite_reconnus_par_CAA");
-        boolean cours_de_conduite_reconnus_par_CAA = false;
-        Soumission instance = new Soumission();
-        instance.setCours_de_conduite_reconnus_par_CAA(cours_de_conduite_reconnus_par_CAA);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of isPremier_contrat method, of class Soumission.
      */
     @Test
@@ -461,19 +292,6 @@ public class SoumissionTest {
     }
 
     /**
-     * Test of setPremier_contrat method, of class Soumission.
-     */
-    @Test
-    public void testSetPremier_contrat() {
-        System.out.println("setPremier_contrat");
-        boolean premier_contrat = false;
-        Soumission instance = new Soumission();
-        instance.setPremier_contrat(premier_contrat);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
      * Test of getDuree_contrat method, of class Soumission.
      */
     @Test
@@ -483,100 +301,6 @@ public class SoumissionTest {
         int expResult = 0;
         int result = instance.getDuree_contrat();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setDuree_contrat method, of class Soumission.
-     */
-    @Test
-    public void testSetDuree_contrat() {
-        System.out.println("setDuree_contrat");
-        int duree_contrat = 0;
-        Soumission instance = new Soumission();
-        instance.setDuree_contrat(duree_contrat);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of isAssurable method, of class Soumission.
-     */
-    @Test
-    public void testIsAssurable() {
-        System.out.println("isAssurable");
-        Soumission instance = new Soumission();
-        boolean expResult = false;
-        boolean result = instance.isAssurable();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setAssurable method, of class Soumission.
-     */
-    @Test
-    public void testSetAssurable() {
-        System.out.println("setAssurable");
-        boolean assurable = false;
-        Soumission instance = new Soumission();
-        instance.setAssurable(assurable);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getMontant_annuel method, of class Soumission.
-     */
-    @Test
-    public void testGetMontant_annuel() {
-        System.out.println("getMontant_annuel");
-        Soumission instance = new Soumission();
-        int expResult = 0;
-        int result = instance.getMontant_annuel();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setMontant_annuel method, of class Soumission.
-     */
-    @Test
-    public void testSetMontant_annuel() {
-        System.out.println("setMontant_annuel");
-        int montant_annuel = 0;
-        Soumission instance = new Soumission();
-        instance.setMontant_annuel(montant_annuel);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getMensualite method, of class Soumission.
-     */
-    @Test
-    public void testGetMensualite() {
-        System.out.println("getMensualite");
-        Soumission instance = new Soumission();
-        int expResult = 0;
-        int result = instance.getMensualite();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setMensualite method, of class Soumission.
-     */
-    @Test
-    public void testSetMensualite() {
-        System.out.println("setMensualite");
-        int mensualite = 0;
-        Soumission instance = new Soumission();
-        instance.setMensualite(mensualite);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

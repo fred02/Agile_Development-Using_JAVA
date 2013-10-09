@@ -66,7 +66,7 @@ public class Soumission<T extends ArrayList> {
         valeur_des_options=voiture.getInt("valeur_des_options");
         burinage=voiture.getString("burinage");
         garage_interieur=voiture.getBoolean("garage_interieur");
-        systeme_alarme=voiture.getBoolean("garage_interieur");
+        systeme_alarme=voiture.getBoolean("systeme_alarme");
             
         date_de_naissance=conducteur.getString("date_de_naissance");
         province=conducteur.getString("province");
@@ -174,9 +174,9 @@ public class Soumission<T extends ArrayList> {
     }
 
     public GregorianCalendar GetDate_fin_cours_GC(){
-        int d_annee = Integer.valueOf(date_de_naissance.substring(0, 4));
-        int d_mois = Integer.valueOf(date_de_naissance.substring(5, 7));
-        int d_jour = Integer.valueOf(date_de_naissance.substring(8, 10));
+        int d_annee = Integer.valueOf(date_fin_cours_de_conduite.substring(0, 4));
+        int d_mois = Integer.valueOf(date_fin_cours_de_conduite.substring(5, 7));
+        int d_jour = Integer.valueOf(date_fin_cours_de_conduite.substring(8, 10));
         GregorianCalendar client = new GregorianCalendar(d_annee,d_mois,d_jour);
         
         return client;

@@ -15,17 +15,14 @@ import net.sf.json.JSONArray;
  * @author Revold
  */
 public class Voiture  {
-    
+       
     public static int prixDuVehicule(Soumission<ArrayList> soumission1) throws FileNotFoundException, IOException{
-        int prix = 0;
-        String modele = soumission1.getMarque();
-        String marque = soumission1.getMarque();
+        int prix = -1;
         
         String jsonTxt = JsonParsing.loadFileIntoString("src/soumission/Json/voituresAdmissibles.json", "UTF-8");
         JSONArray root = (JSONArray) JSONSerializer.toJSON(jsonTxt);
-         
         
-        for (int i = 0; i<= root.size();i++){
+        for (int i = 0; i<root.size();i++){
             JSONObject document = root.getJSONObject(i);
             if ((document.getInt("annee") == soumission1.getAnnee())) { //Si on ajoute des années autre que 2014
                 if ((document.getString("marque").compareTo(soumission1.getMarque()) == 0)) { //Si on ajoute des marques autre que "Porsche"

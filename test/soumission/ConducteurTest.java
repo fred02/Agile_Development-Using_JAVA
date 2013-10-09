@@ -43,11 +43,11 @@ public class ConducteurTest {
      * Test of ageValide method, of class Conducteur.
      */
     @Test
-    public void testAgeValide() {
+    public void testAssurable() {
         System.out.println("ageValide");
         Soumission<ArrayList> soumission1 = null;
         boolean expResult = false;
-        boolean result = Conducteur.ageValide(soumission1);
+        boolean result = Conducteur.assurable(soumission1);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");

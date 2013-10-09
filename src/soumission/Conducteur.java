@@ -15,8 +15,14 @@ import java.util.ArrayList;
  */
 public class Conducteur {
     
-    public static boolean ageValide(Soumission<ArrayList> soumission1){
+    public static boolean assurable(Soumission<ArrayList> soumission1){
         int ageClient = soumission1.GetAge();
+        String provinceClient = soumission1.getProvince();
+        
+        if(!provinceClient.equalsIgnoreCase("Québec"))
+        {
+            return false;
+        }    
         
         if (soumission1.getSexe() =='M' || soumission1.getSexe() =='m'){
             if (ageClient < 25 || ageClient > 75){

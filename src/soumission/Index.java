@@ -19,7 +19,9 @@ public class Index {
         
         Soumission<ArrayList> soumission1 = new Soumission<ArrayList>(JsonReader.LoadFile(args[0]));
         
-        if (Conducteur.ageValide(soumission1) && testDureeContrat(soumission1.getDuree_contrat())){
+        //Voiture.prixDuVehicule(soumission1)!=-1 est une solution temporaire,idéalement il faudrait
+        //créer un fonction qui s'occupe de chercher un véhicule et qui s'il le trouve
+        if (Voiture.prixDuVehicule(soumission1)!=-1 && Conducteur.assurable(soumission1) && testDureeContrat(soumission1.getDuree_contrat())){
             double total=calculPrix(soumission1);
             double mensualite=calculMensualite(total);
             JsonWriter.ecriture(true,total,mensualite, fichierEcriture);

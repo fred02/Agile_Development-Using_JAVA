@@ -9,13 +9,13 @@
         "systeme_alarme": true
     },
     "conducteur": {
-        "date_de_naissance": "1983-06-11",
+        "date_de_naissance": "1971-06-11",
         "province": "Québec",
-        "ville": "Sorel-Tracy",
-        "sexe": "M",
+        "ville": "Montréal",
+        "sexe": "F",
         "date_fin_cours_de_conduite": "2000-12-01",
         "cours_de_conduite_reconnus_par_CAA": true,
         "premier_contrat": false
     },
-    "duree_contrat": 1
+    "duree_contrat": 2
 }

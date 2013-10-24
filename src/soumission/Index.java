@@ -41,14 +41,44 @@ public class Index {
         }
     }
     
+    public static double calculPourcentageDeBase (int age, char sexe)
+    {
+        double pourcentage = 0;
+        
+        if (  sexe=='F' || sexe=='f') {
+        
+            if (age >= 21 && age <=40)
+                pourcentage=11;
+            if (age >= 41 && age <=65)
+                pourcentage=9;
+            if (age >= 66 && age <=75)
+                pourcentage=15.5;
+        }
+        if (  sexe=='M' || sexe=='m') {
+        
+            if (age >= 25 && age <=35)
+                pourcentage=15;
+            if (age >= 36 && age <=60)
+                pourcentage=12;
+            if (age >= 61 && age <=75)
+                pourcentage=13.5;
+        }
+    
+      return pourcentage;
+    }
+    
+    
+    
     public static double calculPrix(Soumission<ArrayList> soumission1) throws FileNotFoundException, IOException{
         double total;
         int prixDuVehicule = Voiture.prixDuVehicule(soumission1);
+        double pourcent = calculPourcentageDeBase (soumission1.GetAge(), soumission1.getSexe());
+        System.out.println("le pourcentage est: " + pourcent);
 
         if(soumission1.getDuree_contrat()==3){
             prixDuVehicule *= 0.85;
         }
-        total = (prixDuVehicule * 0.09);
+        total = (prixDuVehicule * pourcent);
         total += (soumission1.getValeur_des_options() * 0.10);
         
         if (soumission1.getVille().equalsIgnoreCase("Montréal") || soumission1.getVille().equalsIgnoreCase("Longueuil")){

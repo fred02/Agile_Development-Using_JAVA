@@ -57,9 +57,7 @@ public class Index {
         if (soumission1.getBurinage().equalsIgnoreCase("Sherlock")){
             total -= 250;
         }
-        if (soumission1.getSexe() == 'F' || soumission1.getSexe() == 'f'){
-            total -= 1000;
-        }
+        
         if (soumission1.isGarage_interieur()){
             total -= 500;
         }
@@ -69,11 +67,7 @@ public class Index {
         if (soumission1.isCours_de_conduite_reconnus_par_CAA()){
             total -= 100;
         }
-        if (soumission1.getSexe() == 'M' || soumission1.getSexe() == 'm'){
-            if (soumission1.GetAge()<35){
-                total += 1000;
-            }
-        }
+        
         if (soumission1.isPremier_contrat()){
             total += 2000;
         }

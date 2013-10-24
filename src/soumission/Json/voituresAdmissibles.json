@@ -190,5 +190,127 @@
         "marque": "Porsche",
         "modele": "Cayenne Turbo S",
         "valInit": 169000
+    },
+    {
+        "annee": 2014,
+        "marque": "Maserati",
+        "modele": "Quattroporte Q4 AWD",
+        "valInit": 119000
+    },
+    {
+        "annee": 2014,
+        "marque": "Maserati",
+        "modele": "Quattroporte GTS",
+        "valInit": 148000
+    },
+    {
+        "annee": 2013,
+        "marque": "Maserati",
+        "modele": "GranTurismo Sport",
+        "valInit": 140000
+    },
+    {
+        "annee": 2012,
+        "marque": "Maserati",
+        "modele": "GranTurismo S - MC SportLine",
+        "valInit": 130000
+    },
+    {
+        "annee": 2012,
+        "marque": "Maserati",
+        "modele": "GranTurismo MC Stradale",
+        "valInit": 145000
+    },
+    {
+        "annee": 2011,
+        "marque": "Maserati",
+        "modele": "GranTurismo S Convertible",
+        "valInit": 127000
+    },
+    {
+        "annee": 2013,
+        "marque": "Ferrari",
+        "modele": "FF",
+        "valInit": 340000
+    },
+    {
+        "annee": 2013,
+        "marque": "Ferrari",
+        "modele": "California F1",
+        "valInit": 246000
+    },
+    {
+        "annee": 2012,
+        "marque": "Ferrari",
+        "modele": "458 Spider F1",
+        "valInit": 343000
+    },
+    {
+        "annee": 2012,
+        "marque": "Ferrari",
+        "modele": "458 Italia F1",
+        "valInit": 300000
+    },
+    {
+        "annee": 2012,
+        "marque": "Ferrari",
+        "modele": "California F1",
+        "valInit": 223000
+    },
+    {
+        "annee": 2010,
+        "marque": "Ferrari",
+        "modele": "599GTB Fiorano F1",
+        "valInit": 250000
+    },
+    {
+        "annee": 2010,
+        "marque": "Ferrari",
+        "modele": "California F1",
+        "valInit": 189000
+    },
+    {
+        "annee": 2009,
+        "marque": "Ferrari",
+        "modele": "Scuderia 16M Spider F1",
+        "valInit": 280000
+    },
+    {
+        "annee": 2009,
+        "marque": "Ferrari",
+        "modele": "F430 Spider F1",
+        "valInit": 180000
+    },
+    {
+        "annee": 2006,
+        "marque": "Ferrari",
+        "modele": "F430 Challenge F1",
+        "valInit": 150000
+    },
+    {
+        "annee": 2003,
+        "marque": "Ferrari",
+        "modele": "575M Maranello F1",
+        "valInit": 93000
+    },
+    {
+        "annee": 1993,
+        "marque": "Ferrari",
+        "modele": "348TS Speciale - Limited Edition",
+        "valInit": 80000
+    },
+    {
+        "annee": 1970,
+        "marque": "Ferrari",
+        "modele": "365 GT 2+2",
+        "valInit": 170000
+    },
+    {
+        "annee": 2013,
+        "marque": "Porsche",
+        "modele": "918 Spyder",
+        "valInit": 845000
     }
+    
+    
 ]

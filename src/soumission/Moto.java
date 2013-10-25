@@ -54,10 +54,11 @@ public class Moto extends Vehicule{
     
     public static double ccMoto(int indice) throws FileNotFoundException, IOException{
         
-        String jsonTxt = JsonParsing.loadFileIntoString("src/soumission/Json/motosAdmissibles.json", "UTF-8");
-        JSONArray rootMotos = (JSONArray) JSONSerializer.toJSON(jsonTxt);
+        String jsonTxt = JsonParsing.loadFileIntoString("src/soumission/Json/vehiculesAdmissibles.json", "UTF-8");
+        JSONObject root = (JSONObject) JSONSerializer.toJSON(jsonTxt);
+        JSONArray motos = root.getJSONArray("motos");
 
-        JSONObject document = rootMotos.getJSONObject(indice);
+        JSONObject document = motos.getJSONObject(indice);
 
         return document.getDouble("CC");
     }

@@ -22,8 +22,11 @@ public class Voiture  {
         String jsonTxt = JsonParsing.loadFileIntoString("src/soumission/Json/voituresAdmissibles.json", "UTF-8");
         JSONArray root = (JSONArray) JSONSerializer.toJSON(jsonTxt);
         
+    
         for (int i = 0; i<root.size();i++){
             JSONObject document = root.getJSONObject(i);
+            
+                 
             if ((document.getInt("annee") == soumission1.getAnnee())) { //Si on ajoute des années autre que 2014
                 if ((document.getString("marque").compareTo(soumission1.getMarque()) == 0)) { //Si on ajoute des marques autre que "Porsche"
                     if ((document.getString("modele").compareTo(soumission1.getModele()) == 0)) {
@@ -32,8 +35,9 @@ public class Voiture  {
                         //System.out.println("La valeur initiale est: " + valInitilaVoit);
                     }
                 }
-            }
-        }
+            } 
+          
+        } // for i
         return prix;
     }
     

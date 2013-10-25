@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 public class Soumission<T extends ArrayList> {
@@ -23,10 +24,22 @@ public class Soumission<T extends ArrayList> {
         private String date_fin_cours_de_conduite;
         private boolean cours_de_conduite_reconnus_par_CAA;
         private boolean premier_contrat;
-        private int duree_contrat;  
+        private int duree_contrat; 
+        
+        // variables ajoutees apres modification du client
+        private int anneeMoto;
+        private String marqueMoto;
+        private String modeleMoto;
+        private int valeur_des_optionsMoto;
+        private String burinageMoto;
+        private boolean garage_interieurMoto;
+        private boolean systeme_alarmeMoto;
+        
+        private boolean membre_oiq;
+        
         
     public Soumission(){
-        this(0,"","",0,"",false,false,"","","",' ',"",false,false,0);
+        this(0,"","",0,"",false,false,"","","",' ',"",false,false,0,0,"","",0,"",false,false,false);
     }
         
     public Soumission(int annee_1, String marque_1, String modele_1, int valeur_des_options_1,
@@ -34,7 +47,9 @@ public class Soumission<T extends ArrayList> {
                 String date_de_naissance_1, String province_1, String ville_1,
                 char sexe_1, String date_fin_cours_de_conduite_1, boolean 
                 cours_de_conduite_reconnus_par_CAA_1, boolean premier_contrat_1,
-                int duree_contrat_1){
+                int duree_contrat_1,
+                int annee_1_Moto, String marque_1_Moto, String modele_1_Moto, int valeur_des_options_1_Moto,
+                String burinage_1_Moto, boolean garage_interieur_1_Moto, boolean systeme_alarme_1_Moto,boolean membre_ordreIq ){
                 
         annee=annee_1;
         marque=marque_1;
@@ -53,21 +68,57 @@ public class Soumission<T extends ArrayList> {
         premier_contrat=premier_contrat_1;
         
         duree_contrat=duree_contrat_1;
+        
+        // nouveaux ajouts
+        anneeMoto = annee_1_Moto;
+        marqueMoto = marque_1_Moto;
+        modeleMoto = modele_1_Moto;
+        valeur_des_optionsMoto = valeur_des_options_1_Moto;
+        burinageMoto =burinage_1_Moto;
+        garage_interieurMoto = garage_interieur_1_Moto;
+        systeme_alarmeMoto = systeme_alarme_1_Moto;
+        
+        membre_oiq = membre_ordreIq;
+        
+        
+        
     }
     
     public Soumission(JSONObject json){
         
-        JSONObject voiture = json.getJSONObject("voiture");
+        //JSONObject voitures = json.getJSONObject("voitures");
+        // modification de l'objet en un tableau d'objet json
+        JSONArray voitures = json.getJSONArray("voitures");
+        
         JSONObject conducteur = json.getJSONObject("conducteur");
         
-        annee=voiture.getInt("annee");
-        marque=voiture.getString("marque");
-        modele=voiture.getString("modele");
-        valeur_des_options=voiture.getInt("valeur_des_options");
-        burinage=voiture.getString("burinage");
-        garage_interieur=voiture.getBoolean("garage_interieur");
-        systeme_alarme=voiture.getBoolean("systeme_alarme");
-            
+        JSONArray motos = json.getJSONArray("motos");
+        
+        
+       for (int i = 0; i < voitures.size() ; ++i) { 
+           JSONObject tabVoitures = voitures.getJSONObject(i);
+      
+        annee=tabVoitures.getInt("annee");
+        marque=tabVoitures.getString("marque");
+        modele=tabVoitures.getString("modele");
+        valeur_des_options=tabVoitures.getInt("valeur_des_options");
+        burinage=tabVoitures.getString("burinage");
+        garage_interieur=tabVoitures.getBoolean("garage_interieur");
+        systeme_alarme=tabVoitures.getBoolean("systeme_alarme");
+       } // for tableau voitures
+        
+       for (int j = 0; j < motos.size() ; ++j) { 
+           JSONObject tabMotos = motos.getJSONObject(j);
+      
+        anneeMoto=tabMotos.getInt("annee");
+        marqueMoto=tabMotos.getString("marque");
+        modeleMoto=tabMotos.getString("modele");
+        valeur_des_optionsMoto=tabMotos.getInt("valeur_des_options");
+        burinageMoto=tabMotos.getString("burinage");
+        garage_interieurMoto=tabMotos.getBoolean("garage_interieur");
+        systeme_alarmeMoto=tabMotos.getBoolean("systeme_alarme");
+       } // for tableau motos
+        
         date_de_naissance=conducteur.getString("date_de_naissance");
         province=conducteur.getString("province");
         ville=conducteur.getString("ville");
@@ -75,8 +126,11 @@ public class Soumission<T extends ArrayList> {
         date_fin_cours_de_conduite=conducteur.getString("date_fin_cours_de_conduite");
         cours_de_conduite_reconnus_par_CAA=conducteur.getBoolean("cours_de_conduite_reconnus_par_CAA");
         premier_contrat=conducteur.getBoolean("premier_contrat");
+        membre_oiq = conducteur.getBoolean("membre_oiq");
             
         duree_contrat=json.getInt("duree_contrat");
+        
+        
     }
     
     public Soumission(Soumission<ArrayList> soumission1){
@@ -89,6 +143,14 @@ public class Soumission<T extends ArrayList> {
         garage_interieur=soumission1.isGarage_interieur();
         systeme_alarme=soumission1.isSysteme_alarme();
         
+        anneeMoto=soumission1.getAnneeMoto();
+        marqueMoto=soumission1.getMarqueMoto();
+        modeleMoto=soumission1.getModeleMoto();
+        valeur_des_optionsMoto=soumission1.getValeur_des_optionsMoto();
+        burinageMoto=soumission1.getBurinageMoto();
+        garage_interieurMoto=soumission1.isGarage_interieurMoto();
+        systeme_alarmeMoto=soumission1.isSysteme_alarmeMoto();
+        
         date_de_naissance=soumission1.getDate_de_naissance();
         province=soumission1.getProvince();
         ville=soumission1.getVille();
@@ -96,11 +158,42 @@ public class Soumission<T extends ArrayList> {
         date_fin_cours_de_conduite=soumission1.getDate_fin_cours_de_conduite();
         cours_de_conduite_reconnus_par_CAA=soumission1.isCours_de_conduite_reconnus_par_CAA();
         premier_contrat=soumission1.isPremier_contrat();
+        membre_oiq=soumission1.isMembre_oiq();
         
         duree_contrat=soumission1.getDuree_contrat(); 
     }
     
+    // les ajouts pour les getters (motos)
+    public int getAnneeMoto() {
+        return anneeMoto;
+    }
 
+    public String getMarqueMoto() {
+        return marqueMoto;
+    }
+
+    public String getModeleMoto() {
+        return modeleMoto;
+    }
+
+    public int getValeur_des_optionsMoto() {
+        return valeur_des_optionsMoto;
+    }
+
+    public String getBurinageMoto() {
+        return burinageMoto;
+    }
+
+    public boolean isGarage_interieurMoto() {
+        return garage_interieurMoto;
+    }
+
+    public boolean isSysteme_alarmeMoto() {
+        return systeme_alarmeMoto;
+    }
+
+    
+    // les getters pour voitures et conducteurs
     public int getAnnee() {
         return annee;
     }
@@ -132,7 +225,12 @@ public class Soumission<T extends ArrayList> {
     public String getDate_de_naissance() {
         return date_de_naissance;
     }
-
+ 
+    public boolean isMembre_oiq() {
+        return membre_oiq;
+    } 
+    
+    
     public GregorianCalendar GetAgeGC(){
         int d_annee = Integer.valueOf(date_de_naissance.substring(0, 4));
         int d_mois = Integer.valueOf(date_de_naissance.substring(5, 7));

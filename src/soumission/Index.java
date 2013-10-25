@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package soumission;
 
 import java.io.FileNotFoundException;
@@ -14,15 +10,12 @@ public class Index {
 
     static String fichierEcriture;
     public static void main(String[] args)  throws FileNotFoundException, IOException {
-        
-         fichierEcriture = args[1];
+        fichierEcriture = args[1];
         
         Soumission<ArrayList> soumission1 = new Soumission<ArrayList>(JsonReader.LoadFile(args[0]));
         
-        //Voiture.prixDuVehicule(soumission1)!=-1 est une solution temporaire,idéalement il faudrait
-        //créer un fonction qui s'occupe de chercher un véhicule et qui s'il le trouve
-        if (Voiture.prixDuVehicule(soumission1)!=-1 && Conducteur.assurable(soumission1) && testDureeContrat(soumission1.getDuree_contrat())){
-            double total=calculPrix(soumission1);
+        if (soumission1.getAssurable() && testDureeContrat(soumission1.getDuree_contrat())){
+            double total=calculPrixSoumission(soumission1);
             double mensualite=calculMensualite(total);
             JsonWriter.ecriture(true,total,mensualite, fichierEcriture);
         }else{
@@ -48,20 +41,20 @@ public class Index {
         if (  sexe=='F' || sexe=='f') {
         
             if (age >= 21 && age <=40)
-                pourcentage=11;
+                pourcentage=0.11;
             if (age >= 41 && age <=65)
-                pourcentage=9;
+                pourcentage=0.09;
             if (age >= 66 && age <=75)
-                pourcentage=15.5;
+                pourcentage=0.155;
         }
         if (  sexe=='M' || sexe=='m') {
         
             if (age >= 25 && age <=35)
-                pourcentage=15;
+                pourcentage=0.15;
             if (age >= 36 && age <=60)
-                pourcentage=12;
+                pourcentage=0.12;
             if (age >= 61 && age <=75)
-                pourcentage=13.5;
+                pourcentage=0.135;
         }
     
       return pourcentage;
@@ -69,45 +62,82 @@ public class Index {
     
     
     
-    public static double calculPrix(Soumission<ArrayList> soumission1) throws FileNotFoundException, IOException{
-        double total;
-        int prixDuVehicule = Voiture.prixDuVehicule(soumission1);
-        double pourcent = calculPourcentageDeBase (soumission1.GetAge(), soumission1.getSexe());
-        System.out.println("le pourcentage est: " + pourcent);
-
-        if(soumission1.getDuree_contrat()==3){
-            prixDuVehicule *= 0.85;
+    public static double calculPrixSoumission(Soumission<ArrayList> soumission1) throws FileNotFoundException, IOException{
+        double total=0;
+        Conducteur conducteur=soumission1.getConducteur();
+        for(int i=0;i<soumission1.getNbVoitures();i++)
+        {
+            Voiture voiture=soumission1.getVoiture(i);
+            total+=calculPrixVehicule(conducteur,voiture,soumission1.getDuree_contrat());
         }
-        total = (prixDuVehicule * pourcent);
-        total += (soumission1.getValeur_des_options() * 0.10);
-        
-        if (soumission1.getVille().equalsIgnoreCase("Montréal") || soumission1.getVille().equalsIgnoreCase("Longueuil")){
-            total += 200;
+        for(int i=0;i<soumission1.getNbMotos();i++)
+        {
+            Moto moto=soumission1.getMoto(i);
+            total+=calculPrixVehicule(conducteur,moto,soumission1.getDuree_contrat());
         }
-        if (soumission1.getBurinage().equalsIgnoreCase("Sherlock")){
-            total -= 250;
-        }
-        
-        if (soumission1.isGarage_interieur()){
-            total -= 500;
-        }
-        if (soumission1.isSysteme_alarme()){
-            total -= 500;
-        }
-        if (soumission1.isCours_de_conduite_reconnus_par_CAA()){
-            total -= 100;
-        }
-        
-        if (soumission1.isPremier_contrat()){
-            total += 2000;
-        }
-        if (soumission1.GetExperience() > 15){
-            total -= 400;
-        }
-                //System.out.println(total);
+        //System.out.println(total);
         return total;
     }
     
+    public static double calculPrixVehicule(Conducteur conducteur,Vehicule vehicule,int duree_Contrat) throws FileNotFoundException, IOException{
+        double total=0;
+        
+        int prixDuVehicule = vehicule.getValeur_Initiale();
+        double pourcent = calculPourcentageDeBase (conducteur.GetAge(), conducteur.getSexe());
+        if(vehicule instanceof Moto)
+        {
+            pourcent+=0.14;
+        }
+        
+        if(duree_Contrat==3){
+            prixDuVehicule *= 0.85;
+        }
+        total = (prixDuVehicule * pourcent);
+        total += (vehicule.getValeur_des_options() * 0.10);
+
+        if (conducteur.getVille().equalsIgnoreCase("Montréal") || conducteur.getVille().equalsIgnoreCase("Longueuil")){
+            total += 200;
+        }
+        if (vehicule.getBurinage().equalsIgnoreCase("Sherlock")){
+            total -= 250;
+        }
+
+        if (vehicule.isGarage_interieur()){
+            total -= 500;
+        }
+        if (vehicule.isSysteme_alarme()){
+            total -= 500;
+        }
+        if (conducteur.isCours_de_conduite_reconnus_par_CAA()){
+            total -= 100;
+        }
+
+        if (conducteur.isPremier_contrat()){
+            total += 2000;
+        }
+        if (conducteur.GetExperience() > 15){
+            total -= 400;
+        }
+        
+        if (vehicule.getValeur_Initiale()>500000)
+        {
+            total += 2500;
+        }
+        
+        if(vehicule instanceof Moto)
+        {
+            if(((Moto)vehicule).getCc()>1100)
+            {
+                total += 1000;
+            }
+        }
+        
+        if (conducteur.isMembre_oiq())
+        {
+            total*=0.9;
+        }
+        return total;
+    }
     public static double calculMensualite(double total){
         double mensualite;
         mensualite = (total * 1.015)/12;

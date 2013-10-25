@@ -1,13 +1,5 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package soumission;
 
-/**
- *
- * @author fred02
- */
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,26 +7,59 @@ import net.sf.json.JSONObject;
 import net.sf.json.JSONSerializer;
 import net.sf.json.JSONArray;
 
-public class Moto  {
+public class Moto extends Vehicule{
        
-    public static int prixDuVehicule(Soumission<ArrayList> soumission1) throws FileNotFoundException, IOException{
-        int prix = -1;
+    private double cc;
+    
+    public Moto(JSONObject json,int valeur_Initiale_1,double cc_1){
+        super(json,valeur_Initiale_1);
+        cc=cc_1;
+    }
+    
+    public double getCc() {
+        return cc;
+    }
+    
+    public static int trouverVehicule(int annee,String marque,String modele) throws FileNotFoundException, IOException{
+        int indice=-1;
+        
+        String jsonTxt = JsonParsing.loadFileIntoString("src/soumission/Json/vehiculesAdmissibles.json", "UTF-8");
+        JSONObject root = (JSONObject) JSONSerializer.toJSON(jsonTxt);
+        JSONArray motos = root.getJSONArray("motos");
+        
+        for (int i = 0; i<motos.size();i++){
+            JSONObject document = motos.getJSONObject(i);
+            
+            if ((document.getInt("annee") == annee)) {
+                if ((document.getString("marque").compareTo(marque) == 0)) {
+                    if ((document.getString("modele").compareTo(modele) == 0)) {
+                        indice = i;
+                        i=motos.size();
+                    }
+                }
+            } 
+        }
+        return indice;
+    }
+    public static int valeurVehicule(int indice) throws FileNotFoundException, IOException{
+
+        String jsonTxt = JsonParsing.loadFileIntoString("src/soumission/Json/vehiculesAdmissibles.json", "UTF-8");
+        JSONObject root = (JSONObject) JSONSerializer.toJSON(jsonTxt);
+        JSONArray motos = root.getJSONArray("motos");
+        
+        JSONObject document = motos.getJSONObject(indice);
+        
+        return document.getInt("valInit");
+    }
+    
+    public static double ccMoto(int indice) throws FileNotFoundException, IOException{
         
         String jsonTxt = JsonParsing.loadFileIntoString("src/soumission/Json/motosAdmissibles.json", "UTF-8");
         JSONArray rootMotos = (JSONArray) JSONSerializer.toJSON(jsonTxt);
-        
-        for (int i = 0; i<rootMotos.size();i++){
-            JSONObject document = rootMotos.getJSONObject(i);
-            if ((document.getInt("annee") == soumission1.getAnnee())) { //Si on ajoute des années autre que 2014
-                if ((document.getString("marque").compareTo(soumission1.getMarque()) == 0)) { //Si on ajoute des marques autre que "Porsche"
-                    if ((document.getString("modele").compareTo(soumission1.getModele()) == 0)) {
-                        prix = document.getInt("valInit");
-                        i=rootMotos.size();//ferme la boucle
-                    }
-                }
-            }
-        }
-        return prix;
+
+        JSONObject document = rootMotos.getJSONObject(indice);
+
+        return document.getDouble("CC");
     }
-    
+
 }

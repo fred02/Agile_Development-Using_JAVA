@@ -1,44 +1,49 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package soumission;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import net.sf.json.JSONSerializer;
-import net.sf.json.JSONArray;
-/**
- *
- * @author Revold
- */
-public class Voiture  {
+
+public class Voiture extends Vehicule{
        
-    public static int prixDuVehicule(Soumission<ArrayList> soumission1) throws FileNotFoundException, IOException{
-        int prix = -1;
-        
-        String jsonTxt = JsonParsing.loadFileIntoString("src/soumission/Json/voituresAdmissibles.json", "UTF-8");
-        JSONArray root = (JSONArray) JSONSerializer.toJSON(jsonTxt);
-        
+    public Voiture(JSONObject json,int valeur_Initiale_1){
+        super(json,valeur_Initiale_1);
+    }
     
-        for (int i = 0; i<root.size();i++){
-            JSONObject document = root.getJSONObject(i);
+    public static int trouverVehicule(int annee,String marque,String modele) throws FileNotFoundException, IOException{
+        int indice=-1;
+        
+        String jsonTxt = JsonParsing.loadFileIntoString("src/soumission/Json/vehiculesAdmissibles.json", "UTF-8");
+        JSONObject root = (JSONObject) JSONSerializer.toJSON(jsonTxt);
+        JSONArray voitures = root.getJSONArray("voitures");
+        
+        for (int i = 0; i<voitures.size();i++){
+            JSONObject document = voitures.getJSONObject(i);
             
-                 
-            if ((document.getInt("annee") == soumission1.getAnnee())) { //Si on ajoute des années autre que 2014
-                if ((document.getString("marque").compareTo(soumission1.getMarque()) == 0)) { //Si on ajoute des marques autre que "Porsche"
-                    if ((document.getString("modele").compareTo(soumission1.getModele()) == 0)) {
-                        prix = document.getInt("valInit");
-                        i=root.size();//ferme la boucle
-                        //System.out.println("La valeur initiale est: " + valInitilaVoit);
+            if ((document.getInt("annee") == annee)) {
+                if ((document.getString("marque").compareTo(marque) == 0)) {
+                    if ((document.getString("modele").compareTo(modele) == 0)) {
+                        indice = i;
+                        i=voitures.size();
                     }
                 }
             } 
-          
-        } // for i
-        return prix;
+        }
+        return indice;
+    }
+    public static int valeurVehicule(int indice) throws FileNotFoundException, IOException{
+
+        String jsonTxt = JsonParsing.loadFileIntoString("src/soumission/Json/vehiculesAdmissibles.json", "UTF-8");
+        JSONObject root = (JSONObject) JSONSerializer.toJSON(jsonTxt);
+        JSONArray voitures = root.getJSONArray("voitures");
+        
+        JSONObject document = voitures.getJSONObject(indice);
+        
+        return document.getInt("valInit");
     }
     
 }
+
+

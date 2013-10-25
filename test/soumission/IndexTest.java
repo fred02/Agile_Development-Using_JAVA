@@ -71,8 +71,8 @@ public class IndexTest {
     @Test
     public void testCalculPrix() throws Exception {
         System.out.println("calculPrix");
-        Soumission<ArrayList> soumission1 = null;
-        Index.calculPrix(soumission1);
+        int indice=-1;
+        Vehicule.valeurVehicule(indice);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

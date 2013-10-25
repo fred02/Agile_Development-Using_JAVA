@@ -45,7 +45,7 @@ public class SoumissionTest {
     @Test
     public void testGetAnnee() {
         System.out.println("getAnnee");
-        Soumission instance = new Soumission();
+        Soumission instance = null;
         int expResult = 0;
         int result = instance.getAnnee();
         assertEquals(expResult, result);

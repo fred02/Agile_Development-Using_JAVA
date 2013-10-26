@@ -12,15 +12,7 @@
 
   ],
    "motos": [
-    {
-        "annee": 2013,
-        "marque": "Ducati",
-        "modele": "Diavel Dark",
-        "valeur_des_options": 6000,
-        "burinage": null,
-        "garage_interieur": true,
-        "systeme_alarme": false
-    }
+   
   ],
     "conducteur": {
         "date_de_naissance": "1987-01-15",

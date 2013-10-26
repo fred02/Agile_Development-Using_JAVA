@@ -1,15 +1,6 @@
 {
     "voitures": [
-    {
-        "annee": 2014,
-        "marque": "Porsche",
-        "modele": "Panamera",
-        "valeur_des_options": 15500,
-        "burinage": "Sherlock",
-        "garage_interieur": true,
-        "systeme_alarme": true
-    }
-
+    
   ],
    "motos": [
     {

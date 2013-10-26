@@ -1,0 +1,19 @@
+{
+    "voitures": [
+    
+  ],
+   "motos": [
+   
+  ],
+    "conducteur": {
+        "date_de_naissance": "1900-01-15",
+        "province": "Québec",
+        "ville": "Alma",
+        "sexe": "M",
+        "date_fin_cours_de_conduite": "1995-12-01",
+        "cours_de_conduite_reconnus_par_CAA": true,
+        "premier_contrat": true,
+	"membre_oiq": false
+    },
+    "duree_contrat": 3
+}

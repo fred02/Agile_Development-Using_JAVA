@@ -292,14 +292,14 @@ public class SoumissionTest {
     }
 
     /**
-     * Test of getDuree_contrat method, of class Soumission.
+     * Test of get_Duree_contrat method, of class Soumission.
      */
     @Test
     public void testGetDuree_contrat() {
         System.out.println("getDuree_contrat");
         Soumission instance = new Soumission();
         int expResult = 0;
-        int result = instance.getDuree_contrat();
+        int result = instance.get_Duree_contrat();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");

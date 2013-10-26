@@ -1,0 +1,32 @@
+
+CONVENTION DE STYLE UNIFORME DU CODE ET STANDARD DE PROGRAMMATION
+
+
+Document de référence :
+Notre convention de style est principalement basée sur le livre de Robert C.Martin 'Coder proprement' 
+	
+Nous avons adapté notre travail sur les points suivants : 
+
+La Langue choisie:  		Tous les noms des variables et methodes seront écrites en langue francaise, petite exception faite avec les accesseurs ou une partie du nom des méthodes sera en
+				anglais pour donner plus de signification. Exemple : get_Age().
+
+Méthodes:			Les méthodes sont nommées selon la méthode snake_case et comportent dans la majorité des cas un verbe d'action. 
+				Par exemple : trouver_Vehicule(), tester_Duree__Contrat(), calculer_Pourcentage_DeBase() etc.
+
+Variables:			Les variables sont nommées significativement et suivent la forme snake_case
+
+Exceptions: 			Les throws Exceptions sont définies selon le formattage de Netbeans, sur la même ligne que la méthode.
+				Par exemple: public Soumission(JSONObject json) throws FileNotFoundException, IOException {
+
+Limitations et taille des  	- Les méthodes sont limitées à 10 lignes par méthode.
+fonctions: 			- Ils respectent le principe de la responsablité unique énoncé dans le chapitre 3 c'est à dire qu'une méthode ne fait qu'une seule chose.
+	
+	
+Commentaires : 			Les commentaires sont réduits au strict minimum. 
+				Ils ne sont employés que pour expliquer un code qui n'est pas évident à première vue ou pour expliquer l'intention du développeur.
+				Il y en a également au début de chaque fichier pour identifier les auteurs et spécifier d'autres informations.
+
+Indentation et formatage:	Nous allons utiliser le formatage proposé par l'outil de développement intégré NetBeans. 
+
+
+

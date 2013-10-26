@@ -6,117 +6,119 @@ import java.util.ArrayList;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
+/**
+ * Cours: INF2015 Enseignant: Jacques Berger
+ *
+ * Projet pour DDC #1
+ *
+ * Equipe 8 Etudiants:
+ *
+ * Gabriel Jourdenais-Hamel JOUG08108901 Fahd Kacem KACF21038103 Jonathan Drolet
+ * Vince Lavoie
+ */
 public class Soumission<T extends ArrayList> {
-        
-        private Voiture voitures[];
-        private Moto motos[];
-        private Conducteur conducteur;
-        private int duree_contrat; 
-        private boolean assurable;
 
-    public Soumission(JSONObject json)throws FileNotFoundException, IOException{
-        
-        JSONArray voituresJSON = json.getJSONArray("voitures");
-        JSONArray motosJSON = json.getJSONArray("motos");
-        JSONObject conducteurJSON = json.getJSONObject("conducteur");
-        
-        assurable=true;
-        
-        voitures=new Voiture[voituresJSON.size()];
-        for (int i = 0; i < voituresJSON.size() ; ++i) { 
-            int annee=(voituresJSON.getJSONObject(i)).getInt("annee");
-            String marque=(voituresJSON.getJSONObject(i)).getString("marque");
-            String modele=(voituresJSON.getJSONObject(i)).getString("modele");
+    private Voiture voitures[];
+    private Moto motos[];
+    private Conducteur conducteur;
+    private int duree_contrat;
+    private boolean assurable;
+
+    public Soumission(JSONObject json) throws FileNotFoundException, IOException {
+
+        JSONArray voitures_JSON = json.getJSONArray("voitures");
+        JSONArray motos_JSON = json.getJSONArray("motos");
+        JSONObject conducteur_JSON = json.getJSONObject("conducteur");
+
+        assurable = true;
+
+        voitures = new Voiture[voitures_JSON.size()];
+        for (int i = 0; i < voitures_JSON.size(); ++i) {
+            int annee = (voitures_JSON.getJSONObject(i)).getInt("annee");
+            String marque = (voitures_JSON.getJSONObject(i)).getString("marque");
+            String modele = (voitures_JSON.getJSONObject(i)).getString("modele");
             int indice;
-            int valeur_Init=0;
-            if((indice = Voiture.trouverVehicule(annee,marque,modele))>=0)
-            {
-                valeur_Init = Voiture.valeurVehicule(indice);
+            int valeur_Init = 0;
+            if ((indice = Voiture.trouver_Vehicule(annee, marque, modele)) >= 0) {
+                valeur_Init = Voiture.valeur_Vehicule(indice);
+            } else {
+                assurable = false;
             }
-            else
-            {
-                assurable=false;
-            }
-            
-            voitures[i] = new Voiture(voituresJSON.getJSONObject(i),valeur_Init);
+
+            voitures[i] = new Voiture(voitures_JSON.getJSONObject(i), valeur_Init);
         }
-        
-        motos=new Moto[motosJSON.size()];
-        for (int j = 0; j < motosJSON.size() ; ++j) { 
-            int annee=(motosJSON.getJSONObject(j)).getInt("annee");
-            String marque=(motosJSON.getJSONObject(j)).getString("marque");
-            String modele=(motosJSON.getJSONObject(j)).getString("modele");
+
+        motos = new Moto[motos_JSON.size()];
+        for (int j = 0; j < motos_JSON.size(); ++j) {
+            int annee = (motos_JSON.getJSONObject(j)).getInt("annee");
+            String marque = (motos_JSON.getJSONObject(j)).getString("marque");
+            String modele = (motos_JSON.getJSONObject(j)).getString("modele");
             int indice;
-            int valeur_Init=0;
-            double cc=0;
-            
-            if((indice = Moto.trouverVehicule(annee,marque,modele))>=0)
-            {
-                valeur_Init = Moto.valeurVehicule(indice);
-                cc = Moto.ccMoto(indice);
+            int valeur_Init = 0;
+            double cc = 0;
+
+            if ((indice = Moto.trouver_Vehicule(annee, marque, modele)) >= 0) {
+                valeur_Init = Moto.valeur_Vehicule(indice);
+                cc = Moto.cc_Moto(indice);
+            } else {
+                assurable = false;
             }
-            else
-            {
-                assurable=false;
-            }
-            motos[j] = new Moto(motosJSON.getJSONObject(j),valeur_Init,cc);
+            motos[j] = new Moto(motos_JSON.getJSONObject(j), valeur_Init, cc);
         }
-        
-        conducteur = new Conducteur(conducteurJSON);
-            
-        duree_contrat=json.getInt("duree_contrat");
-        
+
+        conducteur = new Conducteur(conducteur_JSON);
+
+        duree_contrat = json.getInt("duree_contrat");
+
         assurable = assurable && Conducteur.assurable(conducteur);
     }
-    
-    public Soumission(Soumission<ArrayList> soumission){
-        
-        voitures=soumission.getVoitures();
-        
-        motos=soumission.getMotos();
-        
-        conducteur=soumission.getConducteur();
-        
-        duree_contrat=soumission.getDuree_contrat(); 
-        
-        assurable=soumission.getAssurable();
+
+    public Soumission(Soumission<ArrayList> soumission) {
+
+        voitures = soumission.get_Voitures();
+
+        motos = soumission.get_Motos();
+
+        conducteur = soumission.get_Conducteur();
+
+        duree_contrat = soumission.get_Duree_contrat();
+
+        assurable = soumission.get_Assurable();
     }
 
-    public Voiture getVoiture(int pos) {
+    public Voiture get_Voiture(int pos) {
         return voitures[pos];
     }
-    
-    public Voiture[] getVoitures() {
+
+    public Voiture[] get_Voitures() {
         return voitures;
     }
-    
-    public int getNbVoitures() {
+
+    public int get_Nb_Voitures() {
         return voitures.length;
     }
-    
-    public Moto getMoto(int pos) {
+
+    public Moto get_Moto(int pos) {
         return motos[pos];
     }
-    
-    public Moto[] getMotos() {
+
+    public Moto[] get_Motos() {
         return motos;
     }
-    
-    public int getNbMotos() {
+
+    public int get_Nb_Motos() {
         return motos.length;
     }
-    
-    public Conducteur getConducteur() {
+
+    public Conducteur get_Conducteur() {
         return conducteur;
     }
-    
-    public int getDuree_contrat() {
+
+    public int get_Duree_contrat() {
         return duree_contrat;
     }
 
-    public boolean getAssurable(){
+    public boolean get_Assurable() {
         return assurable;
     }
-    
-    
 }

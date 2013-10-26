@@ -39,7 +39,7 @@ public class JsonParsingTest {
     }
 
     /**
-     * Test of loadFileIntoString method, of class JsonParsing.
+     * Test of load_File_Into_String method, of class JsonParsing.
      */
     @Test
     public void testLoadFileIntoString() throws Exception {
@@ -47,7 +47,7 @@ public class JsonParsingTest {
         String filePath = "";
         String fileEncoding = "";
         String expResult = "";
-        String result = JsonParsing.loadFileIntoString(filePath, fileEncoding);
+        String result = JsonParsing.load_File_Into_String(filePath, fileEncoding);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");

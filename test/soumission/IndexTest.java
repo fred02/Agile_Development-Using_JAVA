@@ -52,14 +52,14 @@ public class IndexTest {
     }
 
     /**
-     * Test of testDureeContrat method, of class Index.
+     * Test of tester_Duree_Contrat method, of class Index.
      */
     @Test
     public void testTestDureeContrat() {
         System.out.println("testDureeContrat");
         int duree = 0;
         boolean expResult = false;
-        boolean result = Index.testDureeContrat(duree);
+        boolean result = Index.tester_Duree_Contrat(duree);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -72,19 +72,19 @@ public class IndexTest {
     public void testCalculPrix() throws Exception {
         System.out.println("calculPrix");
         int indice=-1;
-        Vehicule.valeurVehicule(indice);
+        Vehicule.valeur_Vehicule(indice);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of calculMensualite method, of class Index.
+     * Test of calculer_Mensualite method, of class Index.
      */
     @Test
     public void testCalculMensualite() {
         System.out.println("calculMensualite");
         double total = 0.0;
-        Index.calculMensualite(total);
+        Index.calculer_Mensualite(total);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

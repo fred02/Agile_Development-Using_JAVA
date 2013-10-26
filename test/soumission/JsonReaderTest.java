@@ -40,14 +40,14 @@ public class JsonReaderTest {
     }
 
     /**
-     * Test of LoadFile method, of class JsonReader.
+     * Test of Load_File method, of class JsonReader.
      */
     @Test
     public void testLoadFile() throws Exception {
         System.out.println("LoadFile");
         String fichierEntree = "";
         Soumission<ArrayList> expResult = null;
-        Soumission<ArrayList> result = JsonReader.LoadFile(fichierEntree);
+        Soumission<ArrayList> result = JsonReader.Load_File(fichierEntree);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");

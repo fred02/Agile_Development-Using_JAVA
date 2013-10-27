@@ -10,13 +10,12 @@ import org.apache.commons.io.IOUtils;
  *
  * Projet pour DDC #1
  *
- * Equipe 8
- * Etudiants:
- * 
- * Gabriel Jourdenais-Hamel JOUG08108901
- * Fahd Kacem               KACF21038103
- * Jonathan Drolet    
- * Vince Lavoie    
+ * Equipe 8 Etudiants:
+ *
+ * Gabriel Jourdenais-Hamel JOUG08108901 
+ * Fahd Kacem               KACF21038103 
+ * Jonathan Drolet
+ * Vince Lavoie
  */
 
 public class JsonParsing {

@@ -11,13 +11,17 @@ import java.util.ArrayList;
  *
  * Equipe 8 Etudiants:
  *
- * Gabriel Jourdenais-Hamel JOUG08108901 Fahd Kacem KACF21038103 Jonathan Drolet
+ * Gabriel Jourdenais-Hamel JOUG08108901 
+ * Fahd Kacem               KACF21038103 
+ * Jonathan Drolet
  * Vince Lavoie
  */
 
 // syntaxe sur la ligne de commande une fois le projet compilé:
 // java -jar dist/Projet-Soumission_Assurance.jar IN/input1.json src/soumission/json/nom_de_votre_choix.json
 public class Index {
+    
+   
 
     static String fichierEcriture;
 
@@ -143,13 +147,16 @@ public class Index {
         if (conducteur.isMembre_oiq()) {
             total *= 0.9;
         }
+       
         return total;
     }
 
     public static double calculer_Mensualite(double total) {
         double mensualite;
         mensualite = (total * 1.015) / 12;
-
+        
         return mensualite;
     }
+    
+   
 }

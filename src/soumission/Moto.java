@@ -13,9 +13,12 @@ import net.sf.json.JSONArray;
  *
  * Equipe 8 Etudiants:
  *
- * Gabriel Jourdenais-Hamel JOUG08108901 Fahd Kacem KACF21038103 Jonathan Drolet
+ * Gabriel Jourdenais-Hamel JOUG08108901 
+ * Fahd Kacem               KACF21038103 
+ * Jonathan Drolet
  * Vince Lavoie
  */
+
 public class Moto extends Vehicule {
 
     private double cc;

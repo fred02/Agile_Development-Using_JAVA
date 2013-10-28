@@ -14,8 +14,8 @@ import org.apache.commons.io.IOUtils;
  *
  * Gabriel Jourdenais-Hamel JOUG08108901 
  * Fahd Kacem               KACF21038103 
- * Jonathan Drolet
- * Vince Lavoie
+ * Jonathan Drolet          DROJ13078506
+ * Vincent Lavoie           LAVV07068909
  */
 
 public class JsonParsing {

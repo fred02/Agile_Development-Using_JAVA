@@ -15,9 +15,10 @@ import net.sf.json.JSONObject;
  *
  * Gabriel Jourdenais-Hamel JOUG08108901 
  * Fahd Kacem               KACF21038103 
- * Jonathan Drolet
- * Vince Lavoie
+ * Jonathan Drolet          DROJ13078506
+ * Vincent Lavoie           LAVV07068909
  */
+
 public class Soumission<T extends ArrayList> {
 
     private Voiture voitures[];

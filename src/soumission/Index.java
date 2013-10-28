@@ -13,8 +13,8 @@ import java.util.ArrayList;
  *
  * Gabriel Jourdenais-Hamel JOUG08108901 
  * Fahd Kacem               KACF21038103 
- * Jonathan Drolet
- * Vince Lavoie
+ * Jonathan Drolet          DROJ13078506
+ * Vincent Lavoie           LAVV07068909
  */
 
 // syntaxe sur la ligne de commande une fois le projet compilé:

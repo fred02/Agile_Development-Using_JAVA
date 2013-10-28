@@ -9,13 +9,12 @@ import net.sf.json.JSONObject;
  *
  * Projet pour DDC #1
  *
- * Equipe 8
- * Etudiants:
- * 
- * Gabriel Jourdenais-Hamel JOUG08108901
- * Fahd Kacem               KACF21038103
- * Jonathan Drolet    
- * Vince Lavoie    
+ * Equipe 8 Etudiants:
+ *
+ * Gabriel Jourdenais-Hamel JOUG08108901 
+ * Fahd Kacem               KACF21038103 
+ * Jonathan Drolet          DROJ13078506
+ * Vincent Lavoie           LAVV07068909
  */
 
 public class Vehicule {

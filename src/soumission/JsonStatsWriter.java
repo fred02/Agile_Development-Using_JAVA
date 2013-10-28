@@ -1,9 +1,9 @@
 package soumission;
 
+import flexjson.JSONSerializer;
 import java.io.FileWriter;
 import java.io.IOException;
 import net.sf.json.JSONObject;
-import flexjson.JSONSerializer;
 import org.apache.commons.math.util.MathUtils;
 
 /**
@@ -19,9 +19,8 @@ import org.apache.commons.math.util.MathUtils;
  * Vincent Lavoie           LAVV07068909
  */
 
-public class JsonWriter {
-
-    public static void ecriture(boolean assurable, double total, double mensualite, String fichierSortie) {
+public class JsonStatsWriter {
+    public static void ecritureStats(boolean assurable, double total, double mensualite, String fichierSortie) {
         JSONObject obj = new JSONObject();
         obj.put("assurable", assurable);
         if (assurable) {

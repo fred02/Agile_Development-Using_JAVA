@@ -311,7 +311,67 @@
         "marque": "Porsche",
         "modele": "918 Spyder",
         "valInit": 845000
-    }    
+    },
+    {
+        "annee": 2014,
+        "marque": "Ferrari",
+        "modele": "LaFerrari",
+        "valInit": 1300000
+    },
+    {
+        "annee": 2014,
+        "marque": "Lamborghini",
+        "modele": "Reventon",
+        "valInit": 1600000
+    },
+    {
+        "annee": 2014,
+        "marque": "Lamborghini",
+        "modele": "Veneno",
+        "valInit": 3900000
+    },
+    {
+        "annee": 2014,
+        "marque": "Koenigsegg",
+        "modele": "Agera R",
+        "valInit": 1600000
+    },
+    {
+        "annee": 2014,
+        "marque": "Aston Martin",
+        "modele": "One-77",
+        "valInit": 1850000
+    },
+    {
+        "annee": 2014,
+        "marque": "Pagani",
+        "modele": "Zonda Cinque Roadster",
+        "valInit": 1800000
+    },
+    {
+        "annee": 2014,
+        "marque": "Pagani",
+        "modele": "Huayra",
+        "valInit": 1300000
+    },
+    {
+        "annee": 2014,
+        "marque": "Pagani",
+        "modele": "Veyron Super Sport",
+        "valInit": 2400000
+    },
+    {
+        "annee": 2014,
+        "marque": "Pagani",
+        "modele": "Veyron Grand Sport Vitesse World Record Edition",
+        "valInit": 2600000
+    },
+    {
+        "annee": 2014,
+        "marque": "W Motors",
+        "modele": "Lykan HyperSport",
+        "valInit": 3400000
+    },
    ],
     "motos": [
     {

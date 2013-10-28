@@ -26,7 +26,12 @@ public class Index {
     static String fichierEcriture;
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
+        String option = args[0];
         fichierEcriture = args[1];
+        
+        if (option.equalsIgnoreCase("-L") || option.equalsIgnoreCase("-S")){
+            Options.choix_Options(option);
+        }
 
         Soumission<ArrayList> soumission1 = new Soumission<ArrayList>(JsonReader.Load_File(args[0]));
 

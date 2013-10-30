@@ -20,7 +20,7 @@ import static org.junit.Assert.*;
  */
 public class VoitureTest {
     
-    public VoitureTest() {
+    /*public VoitureTest() {
     }
     
     @BeforeClass
@@ -39,9 +39,7 @@ public class VoitureTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of prixDuVehicule method, of class Voiture.
-     */
+    
     @Test
     public void testPrixDuVehicule() throws Exception {
         System.out.println("prixDuVehicule");
@@ -51,6 +49,6 @@ public class VoitureTest {
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
-    }
+    }*/
     
 }

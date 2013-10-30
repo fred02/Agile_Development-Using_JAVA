@@ -18,6 +18,7 @@ import net.sf.json.JSONSerializer;
  * Jonathan Drolet          DROJ13078506
  * Vincent Lavoie           LAVV07068909
  */
+
 public class JsonReader {
 
     public static Soumission<ArrayList> soumission1;

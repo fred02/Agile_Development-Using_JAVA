@@ -20,7 +20,7 @@ import static org.junit.Assert.*;
  */
 public class SoumissionTest {
     
-    public SoumissionTest() {
+   /* public SoumissionTest() {
     }
     
     @BeforeClass
@@ -39,9 +39,7 @@ public class SoumissionTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of getAnnee method, of class Soumission.
-     */
+    
     @Test
     public void testGetAnnee() {
         System.out.println("getAnnee");
@@ -53,9 +51,7 @@ public class SoumissionTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of getMarque method, of class Soumission.
-     */
+    
     @Test
     public void testGetMarque() {
         System.out.println("getMarque");
@@ -67,9 +63,7 @@ public class SoumissionTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of getModele method, of class Soumission.
-     */
+    
     @Test
     public void testGetModele() {
         System.out.println("getModele");
@@ -81,9 +75,7 @@ public class SoumissionTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of getValeur_des_options method, of class Soumission.
-     */
+   
     @Test
     public void testGetValeur_des_options() {
         System.out.println("getValeur_des_options");
@@ -95,9 +87,7 @@ public class SoumissionTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of getBurinage method, of class Soumission.
-     */
+    
     @Test
     public void testGetBurinage() {
         System.out.println("getBurinage");
@@ -109,9 +99,7 @@ public class SoumissionTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of isGarage_interieur method, of class Soumission.
-     */
+   
     @Test
     public void testIsGarage_interieur() {
         System.out.println("isGarage_interieur");
@@ -123,9 +111,7 @@ public class SoumissionTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of isSysteme_alarme method, of class Soumission.
-     */
+    
     @Test
     public void testIsSysteme_alarme() {
         System.out.println("isSysteme_alarme");
@@ -137,9 +123,7 @@ public class SoumissionTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of getDate_de_naissance method, of class Soumission.
-     */
+    
     @Test
     public void testGetDate_de_naissance() {
         System.out.println("getDate_de_naissance");
@@ -151,9 +135,7 @@ public class SoumissionTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of GetAgeGC method, of class Soumission.
-     */
+    
     @Test
     public void testGetAgeGC() {
         System.out.println("GetAgeGC");
@@ -165,9 +147,7 @@ public class SoumissionTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of GetAge method, of class Soumission.
-     */
+    
     @Test
     public void testGetAge() {
         System.out.println("GetAge");
@@ -179,9 +159,7 @@ public class SoumissionTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of getProvince method, of class Soumission.
-     */
+    
     @Test
     public void testGetProvince() {
         System.out.println("getProvince");
@@ -193,9 +171,7 @@ public class SoumissionTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of getVille method, of class Soumission.
-     */
+    
     @Test
     public void testGetVille() {
         System.out.println("getVille");
@@ -207,9 +183,7 @@ public class SoumissionTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of getSexe method, of class Soumission.
-     */
+    
     @Test
     public void testGetSexe() {
         System.out.println("getSexe");
@@ -221,9 +195,7 @@ public class SoumissionTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of getDate_fin_cours_de_conduite method, of class Soumission.
-     */
+    
     @Test
     public void testGetDate_fin_cours_de_conduite() {
         System.out.println("getDate_fin_cours_de_conduite");
@@ -235,9 +207,7 @@ public class SoumissionTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of GetDate_fin_cours_GC method, of class Soumission.
-     */
+    
     @Test
     public void testGetDate_fin_cours_GC() {
         System.out.println("GetDate_fin_cours_GC");
@@ -249,9 +219,7 @@ public class SoumissionTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of GetExperience method, of class Soumission.
-     */
+    
     @Test
     public void testGetExperience() {
         System.out.println("GetExperience");
@@ -263,9 +231,7 @@ public class SoumissionTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of isCours_de_conduite_reconnus_par_CAA method, of class Soumission.
-     */
+    
     @Test
     public void testIsCours_de_conduite_reconnus_par_CAA() {
         System.out.println("isCours_de_conduite_reconnus_par_CAA");
@@ -277,9 +243,7 @@ public class SoumissionTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of isPremier_contrat method, of class Soumission.
-     */
+    
     @Test
     public void testIsPremier_contrat() {
         System.out.println("isPremier_contrat");
@@ -291,9 +255,7 @@ public class SoumissionTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of get_Duree_contrat method, of class Soumission.
-     */
+    
     @Test
     public void testGetDuree_contrat() {
         System.out.println("getDuree_contrat");
@@ -305,9 +267,7 @@ public class SoumissionTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of display method, of class Soumission.
-     */
+    
     @Test
     public void testDisplay() {
         System.out.println("display");
@@ -315,6 +275,6 @@ public class SoumissionTest {
         instance.display();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
-    }
+    }*/
     
 }

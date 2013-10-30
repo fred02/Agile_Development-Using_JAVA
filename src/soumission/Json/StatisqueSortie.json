@@ -1,0 +1,24 @@
+{
+    "nombre_de_soumissions": 0,
+    "nombre_de_soumissions_non_assurables": 0,
+    "nombre_de_soumissions_assurables": 0,
+    "nombre_de_soumissions_hommes": 0,
+    "nombre_de_soumissions_femmes": 0,
+    "nombre_de_vehicules": 0,
+    "nombre_de_voitures_assurables": 0,
+    "nombre_de_motos_assurables": 0,
+    "vehicules_par_marque": [
+        {
+            "marque": "Porsche",
+            "nombre": 0
+        },
+        {
+            "marque": "Maserati",
+            "nombre": 0
+        },
+        {
+            "marque": "Ducati",
+            "nombre": 0
+        }
+    ]
+}

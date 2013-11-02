@@ -3,6 +3,7 @@ package soumission;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import net.sf.json.JSONSerializer;
 
@@ -29,7 +30,7 @@ public class Statistique {
    private int statsTotalVehicule;
    private int statsTotalVoitureAssurable;
    private int statsTotalMotoAssurable;
-   //private Vehicule statsVehiculeParMarque;
+   private VehiculeStats statsVehiculeParMarque[];
    
    public Statistique() throws FileNotFoundException, IOException{
        String StatistiqueEntree = "src/soumission/Json/StatistiqueSortie.json";
@@ -45,7 +46,14 @@ public class Statistique {
         statsTotalVehicule = rootStats.getInt("nombre_de_vehicules");
         statsTotalVoitureAssurable = rootStats.getInt("nombre_de_voitures_assurables");
         statsTotalMotoAssurable = rootStats.getInt("nombre_de_motos_assurables");
-        //statsVehiculeParMarque = rootStats.getInt("vehicules_par_marque");
+        
+        JSONArray vehicule_JSON = rootStats.getJSONArray("vehicules_par_marque");
+        statsVehiculeParMarque = new VehiculeStats[vehicule_JSON.size()];
+        for (int i = 0; i < vehicule_JSON.size(); ++i) {
+            int nombre = (vehicule_JSON.getJSONObject(i)).getInt("nombre");
+            String marque = (vehicule_JSON.getJSONObject(i)).getString("marque");
+            statsVehiculeParMarque[i] = new VehiculeStats(marque,nombre); 
+        }         
    }
    
    public void set_TotalAssurable() {
@@ -80,7 +88,7 @@ public class Statistique {
         statsTotalVehicule ++;
    }
    
-   public void set_statsVehiculeParMarque() {
+   public void set_statsVehiculeParMarque(String nouvelleMarque) {
         
    }
    
@@ -94,7 +102,9 @@ public class Statistique {
         fichierStats.put("nombre_de_vehicules", statsTotalVehicule);
         fichierStats.put("nombre_de_voitures_assurables", statsTotalVoitureAssurable);
         fichierStats.put("nombre_de_motos_assurables", statsTotalMotoAssurable);
-        //fichierStats.put("vehicules_par_marque", statsVehiculeParMarque);
+        //JSONArray statsVehiculeParMarqueArray = new JSONArray();
+        //
+        //fichierStats.put("vehicules_par_marque", statsVehiculeParMarqueArray);
         try {
             FileWriter file = new FileWriter("src/soumission/Json/StatistiqueSortie.json");
             flexjson.JSONSerializer json = new flexjson.JSONSerializer();

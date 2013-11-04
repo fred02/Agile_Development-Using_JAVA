@@ -3,6 +3,7 @@ package soumission;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import net.sf.json.JSONSerializer;
@@ -30,7 +31,7 @@ public class Statistique {
    private int statsTotalVehicule;
    private int statsTotalVoitureAssurable;
    private int statsTotalMotoAssurable;
-   private VehiculeStats statsVehiculeParMarque[];
+   private ArrayList<VehiculeStats> statsVehiculeParMarque;
    
    public Statistique() throws FileNotFoundException, IOException{
        String StatistiqueEntree = "src/soumission/Json/StatistiqueSortie.json";
@@ -46,14 +47,15 @@ public class Statistique {
         statsTotalVehicule = rootStats.getInt("nombre_de_vehicules");
         statsTotalVoitureAssurable = rootStats.getInt("nombre_de_voitures_assurables");
         statsTotalMotoAssurable = rootStats.getInt("nombre_de_motos_assurables");
-        
+        //Refactoring
         JSONArray vehicule_JSON = rootStats.getJSONArray("vehicules_par_marque");
-        statsVehiculeParMarque = new VehiculeStats[vehicule_JSON.size()];
+        statsVehiculeParMarque = new ArrayList<VehiculeStats>();
         for (int i = 0; i < vehicule_JSON.size(); ++i) {
             int nombre = (vehicule_JSON.getJSONObject(i)).getInt("nombre");
-            String marque = (vehicule_JSON.getJSONObject(i)).getString("marque");
-            statsVehiculeParMarque[i] = new VehiculeStats(marque,nombre); 
+            String marque = (vehicule_JSON.getJSONObject(i)).getString("marque"); 
+            statsVehiculeParMarque.add(new VehiculeStats(marque,nombre)); 
         }         
+        //
    }
    
    public void set_TotalAssurable() {
@@ -90,14 +92,14 @@ public class Statistique {
    
    public void set_statsVehiculeParMarque(String nouvelleMarque) {
        boolean found = false; 
-       for (int i = 0; i < statsVehiculeParMarque.length; ++i) {
+       /*for (int i = 0; i < statsVehiculeParMarque.length; ++i) {
            if (statsVehiculeParMarque[i].marqueExistante().equals(nouvelleMarque)){
                statsVehiculeParMarque[i].incrementerLeVehicule();
                found = true;
            }
-        }
-       if(found==false){
-          /////Ajouter une entré au tableau deja existant. 
+        }*/
+       if(found == false){
+           /////Ajouter une entré au tableau deja existant.           
        }
    }
    
@@ -113,12 +115,12 @@ public class Statistique {
         fichierStats.put("nombre_de_motos_assurables", statsTotalMotoAssurable);
         
         JSONArray statsVehiculeParMarqueArray = new JSONArray();
-        for (int i = 0; i < statsVehiculeParMarque.length; ++i) {
+        /*for (int i = 0; i < statsVehiculeParMarque.length; ++i) {
             JSONObject indiceMarque = new JSONObject();
             indiceMarque.put("marque", statsVehiculeParMarque[i].marqueExistante());
             indiceMarque.put("nombre", statsVehiculeParMarque[i].nombreParMarque());
             statsVehiculeParMarqueArray.add(indiceMarque); // Pas certain du "add"
-        }
+        }*/
         
         fichierStats.put("vehicules_par_marque", statsVehiculeParMarqueArray);
         

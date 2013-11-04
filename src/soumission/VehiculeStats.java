@@ -1,5 +1,6 @@
-
 package soumission;
+
+import java.util.ArrayList;
 
 /**
  * Cours: INF2015 Enseignant: Jacques Berger
@@ -14,9 +15,14 @@ package soumission;
  * Vincent Lavoie           LAVV07068909
  */
 
-class VehiculeStats {
+class VehiculeStats<T extends ArrayList>{
     private String marque;
     private int nombre;
+    
+    public VehiculeStats(){
+     this.marque = "";
+     this.nombre = 0;
+    }
     
     public VehiculeStats(String nomDeLaMarque){
         marque = nomDeLaMarque;
@@ -38,6 +44,5 @@ class VehiculeStats {
     
     public int nombreParMarque(){
         return nombre;
-    }
-    
+    }    
 }

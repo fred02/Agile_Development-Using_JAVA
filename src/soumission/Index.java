@@ -39,6 +39,7 @@ public class Index {
             double total = calculer_Prix_Soumission(soumission1);
             double mensualite = calculer_Mensualite(total);
             JsonWriter.ecriture(true, total, mensualite, fichierEcriture);
+            
         } else {
             JsonWriter.ecriture(false, 0, 0, fichierEcriture);
         }

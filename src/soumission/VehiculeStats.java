@@ -32,4 +32,12 @@ class VehiculeStats {
         nombre++;
     }
     
+    public String marqueExistante(){
+        return marque;
+    }
+    
+    public int nombreParMarque(){
+        return nombre;
+    }
+    
 }

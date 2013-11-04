@@ -89,7 +89,16 @@ public class Statistique {
    }
    
    public void set_statsVehiculeParMarque(String nouvelleMarque) {
-        
+       boolean found = false; 
+       for (int i = 0; i < statsVehiculeParMarque.length; ++i) {
+           if (statsVehiculeParMarque[i].marqueExistante().equals(nouvelleMarque)){
+               statsVehiculeParMarque[i].incrementerLeVehicule();
+               found = true;
+           }
+        }
+       if(found==false){
+          /////Ajouter une entré au tableau deja existant. 
+       }
    }
    
    public void sauvegarder_statistique() {
@@ -102,9 +111,17 @@ public class Statistique {
         fichierStats.put("nombre_de_vehicules", statsTotalVehicule);
         fichierStats.put("nombre_de_voitures_assurables", statsTotalVoitureAssurable);
         fichierStats.put("nombre_de_motos_assurables", statsTotalMotoAssurable);
-        //JSONArray statsVehiculeParMarqueArray = new JSONArray();
-        //
-        //fichierStats.put("vehicules_par_marque", statsVehiculeParMarqueArray);
+        
+        JSONArray statsVehiculeParMarqueArray = new JSONArray();
+        for (int i = 0; i < statsVehiculeParMarque.length; ++i) {
+            JSONObject indiceMarque = new JSONObject();
+            indiceMarque.put("marque", statsVehiculeParMarque[i].marqueExistante());
+            indiceMarque.put("nombre", statsVehiculeParMarque[i].nombreParMarque());
+            statsVehiculeParMarqueArray.add(indiceMarque); // Pas certain du "add"
+        }
+        
+        fichierStats.put("vehicules_par_marque", statsVehiculeParMarqueArray);
+        
         try {
             FileWriter file = new FileWriter("src/soumission/Json/StatistiqueSortie.json");
             flexjson.JSONSerializer json = new flexjson.JSONSerializer();

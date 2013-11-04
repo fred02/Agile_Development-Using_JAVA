@@ -47,15 +47,8 @@ public class Statistique {
         statsTotalVehicule = rootStats.getInt("nombre_de_vehicules");
         statsTotalVoitureAssurable = rootStats.getInt("nombre_de_voitures_assurables");
         statsTotalMotoAssurable = rootStats.getInt("nombre_de_motos_assurables");
-        //Refactoring
-        JSONArray vehicule_JSON = rootStats.getJSONArray("vehicules_par_marque");
-        statsVehiculeParMarque = new ArrayList<VehiculeStats>();
-        for (int i = 0; i < vehicule_JSON.size(); ++i) {
-            int nombre = (vehicule_JSON.getJSONObject(i)).getInt("nombre");
-            String marque = (vehicule_JSON.getJSONObject(i)).getString("marque"); 
-            statsVehiculeParMarque.add(new VehiculeStats(marque,nombre)); 
-        }         
-        //
+        
+        ChargerVehiculeMarque(rootStats);
    }
    
    public void set_TotalAssurable() {
@@ -92,18 +85,26 @@ public class Statistique {
    
    public void set_statsVehiculeParMarque(String nouvelleMarque) {
        boolean found = false; 
-       /*for (int i = 0; i < statsVehiculeParMarque.length; ++i) {
-           if (statsVehiculeParMarque[i].marqueExistante().equals(nouvelleMarque)){
-               statsVehiculeParMarque[i].incrementerLeVehicule();
+       for (int i = 0; i < statsVehiculeParMarque.size(); ++i) {
+           if (statsVehiculeParMarque.get(i).marqueExistante().equals(nouvelleMarque)){
+               statsVehiculeParMarque.get(i).incrementerLeVehicule();
                found = true;
            }
-        }*/
+        }
        if(found == false){
-           /////Ajouter une entré au tableau deja existant.           
+           statsVehiculeParMarque.add(new VehiculeStats(nouvelleMarque));           
        }
    }
    
-   public void sauvegarder_statistique() {
+   public void aet_endroitSauvegarder(boolean endroitFlag, String endroit) {
+       if(endroitFlag == false){
+           sauvegarder_statistique("src/soumission/Json/StatistiqueSortie.json");
+       }else{
+           sauvegarder_statistique(endroit);
+       }
+   }
+   
+   private void sauvegarder_statistique(String filePatch) {
         JSONObject fichierStats = new JSONObject();
         fichierStats.put("nombre_de_soumissions", statsTotalSoumission);
         fichierStats.put("nombre_de_soumissions_non_assurables", statsTotalNonAssurable);
@@ -114,18 +115,12 @@ public class Statistique {
         fichierStats.put("nombre_de_voitures_assurables", statsTotalVoitureAssurable);
         fichierStats.put("nombre_de_motos_assurables", statsTotalMotoAssurable);
         
-        JSONArray statsVehiculeParMarqueArray = new JSONArray();
-        /*for (int i = 0; i < statsVehiculeParMarque.length; ++i) {
-            JSONObject indiceMarque = new JSONObject();
-            indiceMarque.put("marque", statsVehiculeParMarque[i].marqueExistante());
-            indiceMarque.put("nombre", statsVehiculeParMarque[i].nombreParMarque());
-            statsVehiculeParMarqueArray.add(indiceMarque); // Pas certain du "add"
-        }*/
-        
+        JSONArray statsVehiculeParMarqueArray = SauvegardeVehiculeMarque();
+     
         fichierStats.put("vehicules_par_marque", statsVehiculeParMarqueArray);
         
         try {
-            FileWriter file = new FileWriter("src/soumission/Json/StatistiqueSortie.json");
+            FileWriter file = new FileWriter(filePatch);
             flexjson.JSONSerializer json = new flexjson.JSONSerializer();
             json.prettyPrint(true);
             json.serialize(fichierStats, file);
@@ -136,4 +131,28 @@ public class Statistique {
             e.printStackTrace();
         }
    }
+
+    private JSONArray SauvegardeVehiculeMarque() {
+        //Refactoring
+        JSONArray statsVehiculeParMarqueArray = new JSONArray();
+        for (int i = 0; i < statsVehiculeParMarque.size(); ++i) {
+            JSONObject indiceMarque = new JSONObject();
+            indiceMarque.put("marque", statsVehiculeParMarque.get(i).marqueExistante());
+            indiceMarque.put("nombre", statsVehiculeParMarque.get(i).nombreParMarque());
+            statsVehiculeParMarqueArray.add(indiceMarque); 
+        }
+        return statsVehiculeParMarqueArray;
+    }
+
+    private void ChargerVehiculeMarque(JSONObject rootStats) {
+        //Refactoring
+        JSONArray vehicule_JSON = rootStats.getJSONArray("vehicules_par_marque");
+        statsVehiculeParMarque = new ArrayList<VehiculeStats>();
+        for (int i = 0; i < vehicule_JSON.size(); ++i) {
+            int nombre = (vehicule_JSON.getJSONObject(i)).getInt("nombre");
+            String marque = (vehicule_JSON.getJSONObject(i)).getString("marque"); 
+            statsVehiculeParMarque.add(new VehiculeStats(marque,nombre)); 
+        }         
+        //
+    }
 }

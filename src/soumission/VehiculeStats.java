@@ -19,11 +19,6 @@ class VehiculeStats<T extends ArrayList>{
     private String marque;
     private int nombre;
     
-    public VehiculeStats(){
-     this.marque = "";
-     this.nombre = 0;
-    }
-    
     public VehiculeStats(String nomDeLaMarque){
         marque = nomDeLaMarque;
         nombre = 1;

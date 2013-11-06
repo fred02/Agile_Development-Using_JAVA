@@ -18,7 +18,7 @@ import java.util.ArrayList;
  */
 
 // syntaxe sur la ligne de commande une fois le projet compilé:
-// java -jar dist/Projet-Soumission_Assurance.jar IN/input1.json src/soumission/json/nom_de_votre_choix.json
+// java -jar dist/Projet-Soumission_Assurance.jar IN/input1.json src/soumission/json/fichierSortie1.json
 public class Index {
     
    
@@ -32,9 +32,25 @@ public class Index {
         if (option.equalsIgnoreCase("-L") || option.equalsIgnoreCase("-S")){
             Options.choix_Options(option);
         }
-
+        
         Soumission<ArrayList> soumission1 = new Soumission<ArrayList>(JsonReader.Load_File(args[0]));
-
+        
+        ///// Test des stats /////
+        /*
+        Statistique miseAJourStats = new Statistique();
+        miseAJourStats.set_TotalAssurable();
+        miseAJourStats.set_TotalNonAssurable();
+        miseAJourStats.set_TotalHomme();
+        miseAJourStats.set_TotalFemme();
+        miseAJourStats.set_TotalVehicule();
+        miseAJourStats.set_TotalVoitureAssurable();
+        miseAJourStats.set_TotalMotoAssurable();
+        miseAJourStats.set_statsVehiculeParMarque("banane"); 
+        miseAJourStats.set_statsVehiculeParMarque("ananas"); 
+        miseAJourStats.set_statsVehiculeParMarque("banane"); 
+        miseAJourStats.set_endroitSauvegarder(false, "");
+        */
+        
         if (soumission1.get_Assurable() && tester_Duree_Contrat(soumission1.get_Duree_contrat())) {
             double total = calculer_Prix_Soumission(soumission1);
             double mensualite = calculer_Mensualite(total);

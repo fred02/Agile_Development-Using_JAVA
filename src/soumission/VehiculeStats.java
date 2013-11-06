@@ -21,7 +21,7 @@ class VehiculeStats<T extends ArrayList>{
     
     public VehiculeStats(String nomDeLaMarque){
         marque = nomDeLaMarque;
-        nombre = 1;
+        nombre = 0;
     }
     
     public VehiculeStats(String nomDeLaMarque, int nombreDeLaMarque){

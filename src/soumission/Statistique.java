@@ -49,6 +49,7 @@ public class Statistique {
         statsTotalMotoAssurable = rootStats.getInt("nombre_de_motos_assurables");
         
         ChargerVehiculeMarque(rootStats);
+   
    }
    
    public void set_TotalAssurable() {
@@ -96,7 +97,7 @@ public class Statistique {
        }
    }
    
-   public void aet_endroitSauvegarder(boolean endroitFlag, String endroit) {
+   public void set_endroitSauvegarder(boolean endroitFlag, String endroit) {
        if(endroitFlag == false){
            sauvegarder_statistique("src/soumission/Json/StatistiqueSortie.json");
        }else{
@@ -115,11 +116,11 @@ public class Statistique {
         fichierStats.put("nombre_de_voitures_assurables", statsTotalVoitureAssurable);
         fichierStats.put("nombre_de_motos_assurables", statsTotalMotoAssurable);
         
-        JSONArray statsVehiculeParMarqueArray = SauvegardeVehiculeMarque();
+        JSONArray arrayVehiculeParMarque = SauvegardeVehiculeMarque();
      
-        fichierStats.put("vehicules_par_marque", statsVehiculeParMarqueArray);
+        fichierStats.put("vehicules_par_marque", (Object)arrayVehiculeParMarque);
         
-        try {
+        /*try {
             FileWriter file = new FileWriter(filePatch);
             flexjson.JSONSerializer json = new flexjson.JSONSerializer();
             json.prettyPrint(true);
@@ -129,11 +130,10 @@ public class Statistique {
 
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
    }
 
     private JSONArray SauvegardeVehiculeMarque() {
-        //Refactoring
         JSONArray statsVehiculeParMarqueArray = new JSONArray();
         for (int i = 0; i < statsVehiculeParMarque.size(); ++i) {
             JSONObject indiceMarque = new JSONObject();
@@ -145,14 +145,11 @@ public class Statistique {
     }
 
     private void ChargerVehiculeMarque(JSONObject rootStats) {
-        //Refactoring
         JSONArray vehicule_JSON = rootStats.getJSONArray("vehicules_par_marque");
         statsVehiculeParMarque = new ArrayList<VehiculeStats>();
         for (int i = 0; i < vehicule_JSON.size(); ++i) {
-            int nombre = (vehicule_JSON.getJSONObject(i)).getInt("nombre");
-            String marque = (vehicule_JSON.getJSONObject(i)).getString("marque"); 
-            statsVehiculeParMarque.add(new VehiculeStats(marque,nombre)); 
+            statsVehiculeParMarque.add(new VehiculeStats((vehicule_JSON.getJSONObject(i).getString("marque")),
+                                                        (vehicule_JSON.getJSONObject(i).getInt("nombre")))); 
         }         
-        //
     }
 }

@@ -152,4 +152,8 @@ public class Statistique {
                                                         (vehicule_JSON.getJSONObject(i).getInt("nombre")))); 
         }         
     }
+    
+    public static void Print(String fichierEcriture){
+        
+    }
 }

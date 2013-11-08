@@ -30,7 +30,7 @@ public class Index {
         fichierEcriture = args[1];
         
         if (option.equalsIgnoreCase("-L") || option.equalsIgnoreCase("-S")){
-            Options.choix_Options(option);
+            Options(option, fichierEcriture);
         }
         
         Soumission<ArrayList> soumission1 = new Soumission<ArrayList>(JsonReader.Load_File(args[0]));
@@ -60,6 +60,17 @@ public class Index {
             JsonWriter.ecriture(false, 0, 0, fichierEcriture);
         }
 
+    }
+    
+    
+    public static void Options(String option, String fichierEcriture){
+        String liste = "-l";
+        String statistique = "-s";
+        if (option.equalsIgnoreCase(liste)){
+            Liste.Print(fichierEcriture);
+        }else if (option.equalsIgnoreCase(statistique)){
+            Statistique.Print(fichierEcriture);
+        }
     }
 
     public static boolean tester_Duree_Contrat(int duree) {

@@ -31,6 +31,7 @@ public class Index {
         
         if (option.equalsIgnoreCase("-L") || option.equalsIgnoreCase("-S")){
             Options(option, fichierEcriture);
+            System.exit(0);
         }
         
         Soumission<ArrayList> soumission1 = new Soumission<ArrayList>(JsonReader.Load_File(args[0]));
@@ -63,7 +64,7 @@ public class Index {
     }
     
     
-    public static void Options(String option, String fichierEcriture){
+    public static void Options(String option, String fichierEcriture) throws IOException{
         String liste = "-l";
         String statistique = "-s";
         if (option.equalsIgnoreCase(liste)){

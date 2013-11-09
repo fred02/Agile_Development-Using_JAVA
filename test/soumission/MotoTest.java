@@ -6,7 +6,6 @@
 
 package soumission;
 
-import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -18,55 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author Dacia
  */
-public class VoitureTest {
-
-    @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
-
-    @Before
-    public void setUp() throws Exception {
-    }
-
-    @After
-    public void tearDown() throws Exception {
-    }
-
-    /**
-     * Test of trouver_Vehicule method, of class Voiture.
-     */
-    @Test
-    public void testTrouver_Vehicule() throws Exception {
-        System.out.println("trouver_Vehicule");
-        int annee = 0;
-        String marque = "";
-        String modele = "";
-        int expResult = 0;
-        int result = Voiture.trouver_Vehicule(annee, marque, modele);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of valeur_Vehicule method, of class Voiture.
-     */
-    @Test
-    public void testValeur_Vehicule() throws Exception {
-        System.out.println("valeur_Vehicule");
-        int indice = 0;
-        int expResult = 0;
-        int result = Voiture.valeur_Vehicule(indice);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+public class MotoTest {
     
-    /*public VoitureTest() {
+    public MotoTest() {
     }
     
     @BeforeClass
@@ -85,16 +38,62 @@ public class VoitureTest {
     public void tearDown() {
     }
 
-    
+    /**
+     * Test of getCc method, of class Moto.
+     */
     @Test
-    public void testPrixDuVehicule() throws Exception {
-        System.out.println("prixDuVehicule");
-        Soumission<ArrayList> soumission1 = null;
+    public void testGetCc() {
+        System.out.println("getCc");
+        Moto instance = null;
+        double expResult = 0.0;
+        double result = instance.getCc();
+        assertEquals(expResult, result, 0.0);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of trouver_Vehicule method, of class Moto.
+     */
+    @Test
+    public void testTrouver_Vehicule() throws Exception {
+        System.out.println("trouver_Vehicule");
+        int annee = 0;
+        String marque = "";
+        String modele = "";
         int expResult = 0;
-        int result = Voiture.prixDuVehicule(soumission1);
+        int result = Moto.trouver_Vehicule(annee, marque, modele);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
-    }*/
+    }
+
+    /**
+     * Test of valeur_Vehicule method, of class Moto.
+     */
+    @Test
+    public void testValeur_Vehicule() throws Exception {
+        System.out.println("valeur_Vehicule");
+        int indice = 0;
+        int expResult = 0;
+        int result = Moto.valeur_Vehicule(indice);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of cc_Moto method, of class Moto.
+     */
+    @Test
+    public void testCc_Moto() throws Exception {
+        System.out.println("cc_Moto");
+        int indice = 0;
+        double expResult = 0.0;
+        double result = Moto.cc_Moto(indice);
+        assertEquals(expResult, result, 0.0);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
     
 }

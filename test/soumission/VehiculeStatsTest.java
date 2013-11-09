@@ -6,7 +6,6 @@
 
 package soumission;
 
-import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -18,9 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author Dacia
  */
-public class JsonReaderTest {
+public class VehiculeStatsTest {
     
-    public JsonReaderTest() {
+    public VehiculeStatsTest() {
     }
     
     @BeforeClass
@@ -40,28 +39,40 @@ public class JsonReaderTest {
     }
 
     /**
-     * Test of Load_File method, of class JsonReader.
+     * Test of incrementerLeVehicule method, of class VehiculeStats.
      */
     @Test
-    public void testLoadFile() throws Exception {
-        System.out.println("LoadFile");
-        String fichierEntree = "";
-        Soumission<ArrayList> expResult = null;
-        Soumission<ArrayList> result = JsonReader.Load_File(fichierEntree);
+    public void testIncrementerLeVehicule() {
+        System.out.println("incrementerLeVehicule");
+        VehiculeStats instance = null;
+        instance.incrementerLeVehicule();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of marqueExistante method, of class VehiculeStats.
+     */
+    @Test
+    public void testMarqueExistante() {
+        System.out.println("marqueExistante");
+        VehiculeStats instance = null;
+        String expResult = "";
+        String result = instance.marqueExistante();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of Load_File method, of class JsonReader.
+     * Test of nombreParMarque method, of class VehiculeStats.
      */
     @Test
-    public void testLoad_File() throws Exception {
-        System.out.println("Load_File");
-        String fichierEntree = "";
-        Soumission<ArrayList> expResult = null;
-        Soumission<ArrayList> result = JsonReader.Load_File(fichierEntree);
+    public void testNombreParMarque() {
+        System.out.println("nombreParMarque");
+        VehiculeStats instance = null;
+        int expResult = 0;
+        int result = instance.nombreParMarque();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");

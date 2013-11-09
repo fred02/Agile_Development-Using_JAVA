@@ -52,5 +52,20 @@ public class JsonParsingTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
+
+    /**
+     * Test of load_File_Into_String method, of class JsonParsing.
+     */
+    @Test
+    public void testLoad_File_Into_String() throws Exception {
+        System.out.println("load_File_Into_String");
+        String filePath = "";
+        String fileEncoding = "";
+        String expResult = "";
+        String result = JsonParsing.load_File_Into_String(filePath, fileEncoding);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
     
 }

@@ -12,13 +12,14 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
+import soumission.Json.JsonSuite;
 
 /**
  *
  * @author Dacia
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({soumission.Json.JsonSuite.class, soumission.JsonReaderTest.class, soumission.SoumissionTest.class, soumission.JsonWriterTest.class, soumission.ConducteurTest.class, soumission.JsonParsingTest.class, soumission.VoitureTest.class, soumission.IndexTest.class})
+@Suite.SuiteClasses({JsonSuite.class, VehiculeStatsTest.class, VehiculeTest.class, VoitureTest.class, StatistiqueTest.class, JsonParsingTest.class, ListeTest.class, SoumissionTest.class, IndexTest.class, JsonWriterTest.class, JsonReaderTest.class, MotoTest.class, ConducteurTest.class})
 public class SoumissionSuite {
 
     @BeforeClass

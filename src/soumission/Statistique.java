@@ -1,5 +1,8 @@
 package soumission;
 
+
+
+import soumission.VehiculeStats;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -70,18 +73,18 @@ public class Statistique {
         statsTotalFemme ++;
    }
    
-   public void set_TotalVehicule() {
-        statsTotalVehicule ++;
+   public void set_TotalVehicule(int valeur) {
+        statsTotalVehicule = statsTotalVehicule + valeur;
    }
    
-   public void set_TotalVoitureAssurable() {
-        statsTotalVoitureAssurable ++;
-        statsTotalVehicule ++;
+   public void set_TotalVoitureAssurable(int valeur) {
+        statsTotalVoitureAssurable = statsTotalVoitureAssurable + valeur ;
+        statsTotalVehicule = statsTotalVehicule + valeur;
    }
    
-   public void set_TotalMotoAssurable() {
-        statsTotalMotoAssurable ++;
-        statsTotalVehicule ++;
+   public void set_TotalMotoAssurable(int valeur) {
+        statsTotalMotoAssurable = statsTotalMotoAssurable + valeur ;
+        statsTotalVehicule = statsTotalVehicule + valeur;
    }
    
    public void set_statsVehiculeParMarque(String nouvelleMarque) {
@@ -120,7 +123,7 @@ public class Statistique {
      
         fichierStats.put("vehicules_par_marque", (Object)arrayVehiculeParMarque);
         
-        /*try {
+        try {
             FileWriter file = new FileWriter(filePatch);
             flexjson.JSONSerializer json = new flexjson.JSONSerializer();
             json.prettyPrint(true);
@@ -130,7 +133,7 @@ public class Statistique {
 
         } catch (IOException e) {
             e.printStackTrace();
-        }*/
+        }
    }
 
     private JSONArray SauvegardeVehiculeMarque() {
@@ -153,7 +156,4 @@ public class Statistique {
         }         
     }
     
-    public static void Print(String fichierEcriture){
-        
-    }
 }

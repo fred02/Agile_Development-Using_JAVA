@@ -34,30 +34,23 @@ public class Index {
             System.exit(0);
         }
         
+        Statistique miseAJourStats = new Statistique();
         Soumission<ArrayList> soumission1 = new Soumission<ArrayList>(JsonReader.Load_File(args[0]));
         
-        ///// Test des stats /////
-        /*
-        Statistique miseAJourStats = new Statistique();
-        miseAJourStats.set_TotalAssurable();
-        miseAJourStats.set_TotalNonAssurable();
-        miseAJourStats.set_TotalHomme();
-        miseAJourStats.set_TotalFemme();
-        miseAJourStats.set_TotalVehicule();
-        miseAJourStats.set_TotalVoitureAssurable();
-        miseAJourStats.set_TotalMotoAssurable();
-        miseAJourStats.set_statsVehiculeParMarque("banane"); 
-        miseAJourStats.set_statsVehiculeParMarque("ananas"); 
-        miseAJourStats.set_statsVehiculeParMarque("banane"); 
-        miseAJourStats.set_endroitSauvegarder(false, "");
-        */
-        
         if (soumission1.get_Assurable() && tester_Duree_Contrat(soumission1.get_Duree_contrat())) {
+            miseAJourStats.set_TotalAssurable();
+            StatistiqueCalcul.CalculerStatsAssurable(miseAJourStats,soumission1);
+            miseAJourStats.set_endroitSauvegarder(false, "");
+            
             double total = calculer_Prix_Soumission(soumission1);
             double mensualite = calculer_Mensualite(total);
             JsonWriter.ecriture(true, total, mensualite, fichierEcriture);
             
         } else {
+            StatistiqueCalcul.CalculerStatsNonAssurable(miseAJourStats,soumission1);
+            miseAJourStats.set_TotalNonAssurable();
+            miseAJourStats.set_endroitSauvegarder(false, "");
+            
             JsonWriter.ecriture(false, 0, 0, fichierEcriture);
         }
 
@@ -70,7 +63,8 @@ public class Index {
         if (option.equalsIgnoreCase(liste)){
             Liste.Print(fichierEcriture);
         }else if (option.equalsIgnoreCase(statistique)){
-            Statistique.Print(fichierEcriture);
+            Statistique miseAJourStats = new Statistique();
+            miseAJourStats.set_endroitSauvegarder(true, fichierEcriture);
         }
     }
 
@@ -87,7 +81,7 @@ public class Index {
         double pourcentage = 0;
 
         if (sexe == 'F' || sexe == 'f') {
-
+         
             if (age >= 21 && age <= 40) {
                 pourcentage = 0.11;
             }
@@ -99,7 +93,7 @@ public class Index {
             }
         }
         if (sexe == 'M' || sexe == 'm') {
-
+ 
             if (age >= 25 && age <= 35) {
                 pourcentage = 0.15;
             }

@@ -127,7 +127,7 @@ public class Statistique {
             FileWriter file = new FileWriter(filePatch);
             flexjson.JSONSerializer json = new flexjson.JSONSerializer();
             json.prettyPrint(true);
-            json.serialize(fichierStats, file);
+            json.deepSerialize(fichierStats, file);
             file.flush();
             file.close();
 

@@ -36,8 +36,9 @@ public class Index {
         
         Statistique miseAJourStats = new Statistique();
         Soumission<ArrayList> soumission1 = new Soumission<ArrayList>(JsonReader.Load_File(args[0]));
-        
-        if (soumission1.get_Assurable() && tester_Duree_Contrat(soumission1.get_Duree_contrat())) {
+  
+        if ( soumission1.get_Assurable() && tester_Duree_Contrat(soumission1.get_Duree_contrat()) ) {
+                         
             miseAJourStats.set_TotalAssurable();
             StatistiqueCalcul.CalculerStatsAssurable(miseAJourStats,soumission1);
             miseAJourStats.set_endroitSauvegarder(false, "");
@@ -76,7 +77,9 @@ public class Index {
             return false;
         }
     }
-
+   
+     
+    
     public static double calculer_Pourcentage_DeBase(int age, char sexe) {
         double pourcentage = 0;
 

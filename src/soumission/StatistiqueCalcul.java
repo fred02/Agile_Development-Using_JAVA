@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class StatistiqueCalcul {
     public static void CalculerStatsAssurable(Statistique statistiqueCourante1,Soumission<ArrayList> soumission1){
         
-        if (soumission1.get_Conducteur().get_Sexe() == 'm'){
+        if (soumission1.get_Conducteur().get_Sexe() == 'm' || soumission1.get_Conducteur().get_Sexe() == 'M'){
             statistiqueCourante1.set_TotalHomme();
         }
         else{
@@ -32,7 +32,7 @@ public class StatistiqueCalcul {
     
     public static void CalculerStatsNonAssurable(Statistique statistiqueCourante2,Soumission<ArrayList> soumission2){
         
-        if (soumission2.get_Conducteur().get_Sexe() == 'm'){
+        if (soumission2.get_Conducteur().get_Sexe() == 'm' || soumission2.get_Conducteur().get_Sexe() == 'M'){
             statistiqueCourante2.set_TotalHomme();
         }
         else{

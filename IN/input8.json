@@ -32,5 +32,6 @@
         "premier_contrat": true,
 	"membre_oiq": true
     },
-    "duree_contrat": 3
+    "duree_contrat": 3,
+    "date_debut": "2014-01-04"
 }

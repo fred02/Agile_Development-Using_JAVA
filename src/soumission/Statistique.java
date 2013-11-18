@@ -87,15 +87,17 @@ public class Statistique {
    }
    
    public void set_statsVehiculeParMarque(String nouvelleMarque) {
-       boolean found = false; 
-       for (int i = 0; i < statsVehiculeParMarque.size(); ++i) {
+       boolean found = false;
+       int i ;
+       for (i = 0; i < statsVehiculeParMarque.size(); ++i) {
            if (statsVehiculeParMarque.get(i).marqueExistante().equals(nouvelleMarque)){
                statsVehiculeParMarque.get(i).incrementerLeVehicule();
                found = true;
            }
         }
        if(found == false){
-           statsVehiculeParMarque.add(new VehiculeStats(nouvelleMarque));           
+           statsVehiculeParMarque.add(new VehiculeStats(nouvelleMarque));
+           statsVehiculeParMarque.get(i).incrementerLeVehicule();
        }
    }
    

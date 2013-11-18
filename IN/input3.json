@@ -35,8 +35,16 @@
         "burinage": "PROACTIF",
         "garage_interieur": false,
         "systeme_alarme": false
+    },
+    {
+        "annee": 2014,
+        "marque": "Pagani",
+        "modele": "Veyron Super Sport",
+        "valeur_des_options": 6000,
+        "burinage": "PROACTIF",
+        "garage_interieur": true,
+        "systeme_alarme": true
     }
-
   ],
    "motos": [
     {
@@ -59,5 +67,6 @@
         "premier_contrat": true,
 	"membre_oiq": false
     },
-    "duree_contrat": 3
+    "duree_contrat": 3,
+    "date_debut": "2014-01-04"
 }

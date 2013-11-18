@@ -15,7 +15,7 @@ public class StatistiqueCalcul {
         statistiqueCourante1.set_TotalSoumission();
         statistiqueCourante1.set_TotalAssurable();
         
-        if (soumission1.get_Conducteur().get_Sexe() == 'm'){
+        if (soumission1.get_Conducteur().get_Sexe() == 'm' || soumission1.get_Conducteur().get_Sexe() == 'M'){
             statistiqueCourante1.set_TotalHomme();
         }
         else{
@@ -38,7 +38,7 @@ public class StatistiqueCalcul {
         statistiqueCourante2.set_TotalSoumission();
         statistiqueCourante2.set_TotalNonAssurable();
         
-        if (soumission2.get_Conducteur().get_Sexe() == 'm'){
+        if (soumission2.get_Conducteur().get_Sexe() == 'm' || soumission2.get_Conducteur().get_Sexe() == 'M'){
             statistiqueCourante2.set_TotalHomme();
         }
         else{

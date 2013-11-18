@@ -12,6 +12,8 @@ import java.util.ArrayList;
  */
 public class StatistiqueCalcul {
     public static void CalculerStatsAssurable(Statistique statistiqueCourante1,Soumission<ArrayList> soumission1){
+        statistiqueCourante1.set_TotalSoumission();
+        statistiqueCourante1.set_TotalAssurable();
         
         if (soumission1.get_Conducteur().get_Sexe() == 'm'){
             statistiqueCourante1.set_TotalHomme();
@@ -28,9 +30,13 @@ public class StatistiqueCalcul {
         for(int i = 0; i<soumission1.get_Motos().length;i++){
             statistiqueCourante1.set_statsVehiculeParMarque(soumission1.get_Moto(i).get_Marque());   
         }
+        
+        statistiqueCourante1.set_TotalVehicule(soumission1.get_Voitures().length + soumission1.get_Motos().length);
     }
     
     public static void CalculerStatsNonAssurable(Statistique statistiqueCourante2,Soumission<ArrayList> soumission2){
+        statistiqueCourante2.set_TotalSoumission();
+        statistiqueCourante2.set_TotalNonAssurable();
         
         if (soumission2.get_Conducteur().get_Sexe() == 'm'){
             statistiqueCourante2.set_TotalHomme();
@@ -38,6 +44,7 @@ public class StatistiqueCalcul {
         else{
             statistiqueCourante2.set_TotalFemme();
         }
+        
         statistiqueCourante2.set_TotalVehicule(soumission2.get_Voitures().length + soumission2.get_Motos().length);
     }
 }

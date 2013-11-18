@@ -54,15 +54,16 @@ public class Statistique {
         ChargerVehiculeMarque(rootStats);
    
    }
+   public void set_TotalSoumission() {
+        statsTotalSoumission++;
+   }
    
    public void set_TotalAssurable() {
         statsTotalAssurable ++;
-        statsTotalSoumission++;
    }
    
    public void set_TotalNonAssurable() {
         statsTotalNonAssurable ++;
-        statsTotalSoumission++;
    }
    
    public void set_TotalHomme() {
@@ -79,12 +80,10 @@ public class Statistique {
    
    public void set_TotalVoitureAssurable(int valeur) {
         statsTotalVoitureAssurable = statsTotalVoitureAssurable + valeur ;
-        statsTotalVehicule = statsTotalVehicule + valeur;
    }
    
    public void set_TotalMotoAssurable(int valeur) {
         statsTotalMotoAssurable = statsTotalMotoAssurable + valeur ;
-        statsTotalVehicule = statsTotalVehicule + valeur;
    }
    
    public void set_statsVehiculeParMarque(String nouvelleMarque) {

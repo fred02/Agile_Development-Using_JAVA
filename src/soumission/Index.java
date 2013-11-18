@@ -3,6 +3,7 @@ package soumission;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  * Cours: INF2015 Enseignant: Jacques Berger
@@ -39,7 +40,6 @@ public class Index {
   
         if ( soumission1.get_Assurable() && tester_Duree_Contrat(soumission1.get_Duree_contrat()) ) {
                          
-            miseAJourStats.set_TotalAssurable();
             StatistiqueCalcul.CalculerStatsAssurable(miseAJourStats,soumission1);
             miseAJourStats.set_endroitSauvegarder(false, "");
             
@@ -49,7 +49,6 @@ public class Index {
             
         } else {
             StatistiqueCalcul.CalculerStatsNonAssurable(miseAJourStats,soumission1);
-            miseAJourStats.set_TotalNonAssurable();
             miseAJourStats.set_endroitSauvegarder(false, "");
             
             JsonWriter.ecriture(false, 0, 0, fichierEcriture);
@@ -121,6 +120,17 @@ public class Index {
         for (int i = 0; i < soumission1.get_Nb_Motos(); i++) {
             Moto moto = soumission1.get_Moto(i);
             total += calculer_Prix_Vehicule(conducteur, moto, soumission1.get_Duree_contrat());
+        }
+        Calendar date_debut=soumission1.get_Date_debut();
+        int mois=date_debut.get(Calendar.MONTH);
+        int jour=date_debut.get(Calendar.DAY_OF_MONTH);
+        if(mois==11&&(jour>=1&&jour<=15))
+        {
+            total*=0.9;
+        }
+        else if((mois==2&&jour>=14)||(mois==3&&jour<=3))
+        {
+            total*=0.95;
         }
         //System.out.println(total);
         return total;

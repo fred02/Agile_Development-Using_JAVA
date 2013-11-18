@@ -64,18 +64,9 @@ public class Conducteur {
         return membre_oiq;
     }
 
-    public GregorianCalendar get_age_GC() {
-        int d_annee = Integer.valueOf(date_de_naissance.substring(0, 4));
-        int d_mois = Integer.valueOf(date_de_naissance.substring(5, 7));
-        int d_jour = Integer.valueOf(date_de_naissance.substring(8, 10));
-        GregorianCalendar client = new GregorianCalendar(d_annee, d_mois, d_jour);
-
-        return client;
-    }
-
     public int get_Age() {
 
-        Calendar client = get_age_GC();
+        Calendar client = DateParsing.stringToCalendar(date_de_naissance);
         Calendar maintenant = new GregorianCalendar();
 
         int ageClient = maintenant.get(Calendar.YEAR) - client.get(Calendar.YEAR);
@@ -104,18 +95,9 @@ public class Conducteur {
         return date_fin_cours_de_conduite;
     }
 
-    public GregorianCalendar getDate_fin_cours_GC() {
-        int d_annee = Integer.valueOf(date_fin_cours_de_conduite.substring(0, 4));
-        int d_mois = Integer.valueOf(date_fin_cours_de_conduite.substring(5, 7));
-        int d_jour = Integer.valueOf(date_fin_cours_de_conduite.substring(8, 10));
-        GregorianCalendar client = new GregorianCalendar(d_annee, d_mois, d_jour);
-
-        return client;
-    }
-
     public int get_Experience() {
 
-        Calendar client = getDate_fin_cours_GC();
+        Calendar client = DateParsing.stringToCalendar(date_fin_cours_de_conduite);
         Calendar maintenant = new GregorianCalendar();
 
         int ageClient = maintenant.get(Calendar.YEAR) - client.get(Calendar.YEAR);

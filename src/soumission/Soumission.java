@@ -3,6 +3,7 @@ package soumission;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
@@ -27,6 +28,7 @@ public class Soumission<T extends ArrayList> {
     private Moto motos[];
     private Conducteur conducteur;
     private int duree_contrat;
+    private String date_debut;
     private boolean assurable;
 
     public Soumission(JSONObject json) throws FileNotFoundException, IOException {
@@ -78,23 +80,27 @@ public class Soumission<T extends ArrayList> {
         conducteur = new Conducteur(conducteur_JSON);
 
         duree_contrat = json.getInt("duree_contrat");
+        
+        date_debut = json.getString("date_debut");
 
-        assurable = assurable && Conducteur.assurable(conducteur) && assureLuxe;
+        assurable = assurable && Conducteur.assurable(conducteur);
         
         
     }
 
     public Soumission(Soumission<ArrayList> soumission) {
 
-        voitures = soumission.get_Voitures();
+        voitures = soumission.voitures;
 
-        motos = soumission.get_Motos();
+        motos = soumission.motos;
 
-        conducteur = soumission.get_Conducteur();
+        conducteur = soumission.conducteur;
 
-        duree_contrat = soumission.get_Duree_contrat();
+        duree_contrat = soumission.duree_contrat;
+        
+        date_debut = soumission.date_debut;
 
-        assurable = soumission.get_Assurable();
+        assurable = soumission.assurable;
     }
 
    public static boolean voitureDeLuxe (Vehicule vehicule) {
@@ -144,5 +150,10 @@ public class Soumission<T extends ArrayList> {
 
     public boolean get_Assurable() {
         return assurable;
+    }
+    
+    public Calendar get_Date_debut() {
+        Calendar date = DateParsing.stringToCalendar(date_debut);
+        return date;
     }
 }

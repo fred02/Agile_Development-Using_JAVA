@@ -1,0 +1,46 @@
+{
+    "voitures": [
+    {
+        "annee": 2014,
+        "marque": "Maserati",
+        "modele": "Quattroporte Q4 AWD",
+        "valeur_des_options": 7000,
+        "burinage": "Sherlock",
+        "garage_interieur": true,
+        "systeme_alarme": true
+    },
+    {
+        "annee": 2014,
+        "marque": "Porsche",
+        "modele": "Boxter",
+        "valeur_des_options": 6000,
+        "burinage": "PROACTIF",
+        "garage_interieur": false,
+        "systeme_alarme": false
+    }
+
+  ],
+   "motos": [
+    {
+        "annee": 2013,
+        "marque": "Ducati",
+        "modele": "Hypermotard SP",
+        "valeur_des_options": 3000,
+        "burinage": null,
+        "garage_interieur": true,
+        "systeme_alarme": true
+    }
+  ],
+    "conducteur": {
+        "date_de_naissance": "1900-01-15",
+        "province": "Québec",
+        "ville": "Alma",
+        "sexe": "M",
+        "date_fin_cours_de_conduite": "1995-12-01",
+        "cours_de_conduite_reconnus_par_CAA": true,
+        "premier_contrat": false,
+	"membre_oiq": false
+    },
+    "duree_contrat": 3,
+    "date_debut": "2014-01-04"
+}

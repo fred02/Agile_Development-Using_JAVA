@@ -1,37 +1,99 @@
 {
-    "voitures": [
+    "voitures": [   
     {
-        "annee": 2014,
-        "marque": "Porsche",
-        "modele": "Panamera",
-        "valeur_des_options": 15500,
+        "annee": 2012,
+        "marque": "Ferrari",
+        "modele": "458 Spider F1",
+        "valeur_des_options": 15000,
         "burinage": "Sherlock",
         "garage_interieur": true,
         "systeme_alarme": true
+    },
+    {
+        "annee": 2014,
+        "marque": "Maserati",
+        "modele": "Quattroporte Q4 AWD",
+        "valeur_des_options": 7000,
+        "burinage": "Sherlock",
+        "garage_interieur": true,
+        "systeme_alarme": true
+    },
+    {
+        "annee": 2014,
+        "marque": "Lamborghini",
+        "modele": "Reventon",
+        "valeur_des_options": 6000,
+        "burinage": "PROACTIF",
+        "garage_interieur": true,
+        "systeme_alarme": true
+    },
+    {
+        "annee": 2014,
+        "marque": "Koenigsegg",
+        "modele": "Agera R",
+        "valeur_des_options": 6000,
+        "burinage": "PROACTIF",
+        "garage_interieur": true,
+        "systeme_alarme": true
+    },
+    {
+        "annee": 2014,
+        "marque": "Aston Martin",
+        "modele": "One-77",
+        "valeur_des_options": 6000,
+        "burinage": "PROACTIF",
+        "garage_interieur": true,
+        "systeme_alarme": true
+    },
+    {
+        "annee": 2014,
+        "marque": "Pagani",
+        "modele": "Huayra",
+        "valeur_des_options": 6000,
+        "burinage": "PROACTIF",
+        "garage_interieur": true,
+        "systeme_alarme": true
+    },
+    {
+        "annee": 2014,
+        "marque": "Bugatti",
+        "modele": "Veyron Super Sport",
+        "valeur_des_options": 6000,
+        "burinage": "PROACTIF",
+        "garage_interieur": true,
+        "systeme_alarme": true
+    },
+    {
+        "annee": 2014,
+        "marque": "W Motors",
+        "modele": "Lykan HyperSport",
+        "valeur_des_options": 6000,
+        "burinage": "PROACTIF",
+        "garage_interieur": true,
+        "systeme_alarme": true
     }
-
   ],
    "motos": [
     {
         "annee": 2013,
         "marque": "Ducati",
-        "modele": "Diavel Dark",
-        "valeur_des_options": 6000,
+        "modele": "Hypermotard SP",
+        "valeur_des_options": 3000,
         "burinage": null,
         "garage_interieur": true,
-        "systeme_alarme": false
+        "systeme_alarme": true
     }
   ],
     "conducteur": {
-        "date_de_naissance": "1987-01-15",
+        "date_de_naissance": "1970-01-15",
         "province": "Québec",
-        "ville": "Montréal",
+        "ville": "Alma",
         "sexe": "F",
-        "date_fin_cours_de_conduite": "2005-12-01",
+        "date_fin_cours_de_conduite": "1995-12-01",
         "cours_de_conduite_reconnus_par_CAA": true,
-        "premier_contrat": true,
-	"membre_oiq": true
+        "premier_contrat": false,
+	"membre_oiq": false
     },
     "duree_contrat": 3,
-    "date_debut": "2014-01-04"
+    "date_debut": "2014-11-14"
 }

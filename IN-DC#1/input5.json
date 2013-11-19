@@ -1,0 +1,37 @@
+{
+    "voitures": [
+    {
+        "annee": 2014,
+        "marque": "Porsche",
+        "modele": "Panamera",
+        "valeur_des_options": 15500,
+        "burinage": "Sherlock",
+        "garage_interieur": true,
+        "systeme_alarme": true
+    }
+
+  ],
+   "motos": [
+    {
+        "annee": 2013,
+        "marque": "Ducati",
+        "modele": "Diavel Dark",
+        "valeur_des_options": 6000,
+        "burinage": null,
+        "garage_interieur": true,
+        "systeme_alarme": false
+    }
+  ],
+    "conducteur": {
+        "date_de_naissance": "1987-01-15",
+        "province": "Québec",
+        "ville": "Montréal",
+        "sexe": "F",
+        "date_fin_cours_de_conduite": "2005-12-01",
+        "cours_de_conduite_reconnus_par_CAA": true,
+        "premier_contrat": true,
+	"membre_oiq": true
+    },
+    "duree_contrat": 3,
+    "date_debut": "2014-01-04"
+}

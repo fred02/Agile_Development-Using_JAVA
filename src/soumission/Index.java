@@ -132,7 +132,6 @@ public class Index {
         {
             total*=0.95;
         }
-        //System.out.println(total);
         return total;
     }
 

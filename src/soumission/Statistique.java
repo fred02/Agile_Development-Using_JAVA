@@ -105,6 +105,14 @@ public class Statistique {
        }
    }
    
+   public void set_VehiculesValeurDemiMillion() {
+       statsVehiculesValeurDemiMillion++;
+   }
+   
+   public void set_VehiculesValeurMillion() {
+       statsVehiculesValeurMillion++;
+   }
+   
    public void set_endroitSauvegarder(boolean endroitFlag, String endroit) {
        if(endroitFlag == false){
            sauvegarder_statistique("src/soumission/Json/StatistiqueSortie.json");

@@ -25,7 +25,13 @@ public class StatistiqueCalcul {
         statistiqueCourante1.set_TotalMotoAssurable(soumission1.get_Motos().length);
         
         for(int i = 0; i<soumission1.get_Voitures().length;i++){
-            statistiqueCourante1.set_statsVehiculeParMarque(soumission1.get_Voiture(i).get_Marque());   
+            statistiqueCourante1.set_statsVehiculeParMarque(soumission1.get_Voiture(i).get_Marque());
+            if (soumission1.get_Voiture(i).get_Valeur_Initiale()> 1000000){
+                statistiqueCourante1.set_VehiculesValeurMillion();
+            }
+            else if(soumission1.get_Voiture(i).get_Valeur_Initiale()>= 500000){
+                statistiqueCourante1.set_VehiculesValeurDemiMillion();
+            }
         }
         for(int i = 0; i<soumission1.get_Motos().length;i++){
             statistiqueCourante1.set_statsVehiculeParMarque(soumission1.get_Moto(i).get_Marque());   

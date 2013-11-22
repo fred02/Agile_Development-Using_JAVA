@@ -6,6 +6,8 @@
     "nombre_de_soumissions_femmes": 1,
     "nombre_de_vehicules": 30,
     "nombre_de_voitures_assurables": 15,
+    "nombre_vehicules_demi_million": 0,
+    "nombre_vehicules_million": 0,    
     "nombre_de_motos_assurables": 3,
     "vehicules_par_marque": [
         {

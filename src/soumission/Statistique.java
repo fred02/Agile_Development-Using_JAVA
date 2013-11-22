@@ -34,6 +34,8 @@ public class Statistique {
    private int statsTotalVehicule;
    private int statsTotalVoitureAssurable;
    private int statsTotalMotoAssurable;
+   private int statsVehiculesValeurDemiMillion;
+   private int statsVehiculesValeurMillion;
    private ArrayList<VehiculeStats> statsVehiculeParMarque;
    
    public Statistique() throws FileNotFoundException, IOException{
@@ -50,6 +52,8 @@ public class Statistique {
         statsTotalVehicule = rootStats.getInt("nombre_de_vehicules");
         statsTotalVoitureAssurable = rootStats.getInt("nombre_de_voitures_assurables");
         statsTotalMotoAssurable = rootStats.getInt("nombre_de_motos_assurables");
+        statsVehiculesValeurDemiMillion = rootStats.getInt("nombre_vehicules_demi_million");
+        statsVehiculesValeurMillion = rootStats.getInt("nombre_vehicules_million");
         
         ChargerVehiculeMarque(rootStats);
    
@@ -119,6 +123,8 @@ public class Statistique {
         fichierStats.put("nombre_de_vehicules", statsTotalVehicule);
         fichierStats.put("nombre_de_voitures_assurables", statsTotalVoitureAssurable);
         fichierStats.put("nombre_de_motos_assurables", statsTotalMotoAssurable);
+        fichierStats.put("nombre_vehicules_demi_million", statsVehiculesValeurDemiMillion);
+        fichierStats.put("nombre_vehicules_million", statsVehiculesValeurMillion);
         
         JSONArray arrayVehiculeParMarque = SauvegardeVehiculeMarque();
      

@@ -170,7 +170,7 @@ public class Index {
         if (conducteur.isPremier_contrat()) {
             total += 2000;
         }
-        if (conducteur.get_Experience() > 15) {
+        if (conducteur.get_Experience() > 14) {
             total -= 400;
         }
 

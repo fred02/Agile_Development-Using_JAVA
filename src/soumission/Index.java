@@ -112,6 +112,7 @@ public class Index {
 
     public static double calculer_Prix_Soumission(Soumission<ArrayList> soumission1) throws FileNotFoundException, IOException {
         double total = 0;
+        double rabais = 1;
         Conducteur conducteur = soumission1.get_Conducteur();
         for (int i = 0; i < soumission1.get_Nb_Voitures(); i++) {
             Voiture voiture = soumission1.get_Voiture(i);
@@ -121,17 +122,23 @@ public class Index {
             Moto moto = soumission1.get_Moto(i);
             total += calculer_Prix_Vehicule(conducteur, moto, soumission1.get_Duree_contrat());
         }
+        if (conducteur.isMembre_oiq()) {
+            rabais -= 0.1;
+        }
+        
         Calendar date_debut=soumission1.get_Date_debut();
         int mois=date_debut.get(Calendar.MONTH);
         int jour=date_debut.get(Calendar.DAY_OF_MONTH);
         if(mois==11&&(jour>=1&&jour<=15))
         {
-            total*=0.9;
+            rabais-=0.1;
         }
         else if((mois==2&&jour>=14)||(mois==3&&jour<=3))
         {
-            total*=0.95;
+            rabais-=0.05;
         }
+        total*=rabais;
+        
         return total;
     }
 
@@ -170,7 +177,7 @@ public class Index {
         if (conducteur.isPremier_contrat()) {
             total += 2000;
         }
-        if (conducteur.get_Experience() > 14) {
+        if (conducteur.get_Experience() >= 15) {
             total -= 400;
         }
 
@@ -182,10 +189,6 @@ public class Index {
             if (((Moto) vehicule).getCc() > 1100) {
                 total += 1000;
             }
-        }
-
-        if (conducteur.isMembre_oiq()) {
-            total *= 0.9;
         }
        
         return total;

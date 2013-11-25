@@ -87,8 +87,14 @@
     {
         "annee": 2014,
         "marque": "Porsche",
+        "modele": "911 Turbo S",
+        "valInit": 207000
+    },
+    {
+        "annee": 2014,
+        "marque": "Porsche",
         "modele": "911 GT3",
-        "valInit": 123000
+        "valInit": 149000
     },
     {
         "annee": 2014,
@@ -221,6 +227,12 @@
         "marque": "Maserati",
         "modele": "GranTurismo S Convertible",
         "valInit": 127000
+    },
+    {
+        "annee": 2013,
+        "marque": "Ferrari",
+        "modele": "FF",
+        "valInit": 340000
     },
     {
         "annee": 2013,

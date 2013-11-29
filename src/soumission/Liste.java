@@ -88,16 +88,6 @@ public class Liste {
         return objVehicule;
     }
 
-    public static int compare(JSONObject a, JSONObject b) {
-        //valA and valB could be any simple type, such as number, string, whatever
-        String valA = a.getString("marque");
-        String valB = b.getString("marque");
-
-        int result = valA.compareTo(valB);
-
-        return result;
-    }
-
     public static JSONArray trier_tab_json(JSONArray array) {
         JSONArray array_tri = new JSONArray();
 

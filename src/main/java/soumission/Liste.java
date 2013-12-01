@@ -95,13 +95,20 @@ public class Liste {
         for (int i = 0; i < array.size(); i++) {
             jsons.add(array.getJSONObject(i));
         }
-        Collections.sort(jsons, new Comparator<JSONObject>() {
+       Collections.sort(jsons, new Comparator<JSONObject>() {
             // comparer entre les objects
             public int compare(JSONObject object_gauche, JSONObject object_droite) {
-                String id_gauche = object_gauche.getString("marque");
-                String id_droite = object_droite.getString("marque");
-
-                return id_gauche.compareTo(id_droite);
+                String marque_L = object_gauche.getString("marque");
+                String marque_R = object_droite.getString("marque");
+                int sComp = marque_L.compareTo(marque_R);
+                
+                if (sComp != 0){
+                    return sComp;
+                }else {
+                    String modele_L = object_gauche.getString("modele");
+                    String modele_R = object_droite.getString("modele");
+                    return modele_L.compareTo(modele_R);
+                }
             }
         });
 

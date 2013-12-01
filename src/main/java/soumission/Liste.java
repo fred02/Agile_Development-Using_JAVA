@@ -29,7 +29,7 @@ public class Liste {
 
     public static void Print(String fichierEcriture) throws IOException {
 
-        String json_Txt = JsonParsing.load_File_Into_String("src/soumission/Json/vehiculesAdmissibles.json", "UTF-8");
+        String json_Txt = JsonParsing.load_File_Into_String("src/main/java/soumission/Json/vehiculesAdmissibles.json", "UTF-8");
         JSONObject root = (JSONObject) JSONSerializer.toJSON(json_Txt);
         JSONArray voitures = root.getJSONArray("voitures");
         JSONArray motos = root.getJSONArray("motos");

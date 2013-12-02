@@ -105,7 +105,7 @@ public class SoumissionTest {
         Voiture expResult = new Voiture(2014,"Porsche","911 Turbo",8000,"PROACTIF",true,true,170000);
         Voiture result = soumission1.get_Voiture(pos);
         System.out.print(result);
-        expResult.equals(result);
+        assertTrue(expResult.equals(result));
     }
 
     /**
@@ -117,7 +117,7 @@ public class SoumissionTest {
         Voiture[] expResult=new Voiture[1];
         expResult[0] = new Voiture(2014,"Porsche","911 Turbo",8000,"PROACTIF",true,true,170000);
         Voiture[] result = soumission1.get_Voitures();
-        expResult[0].equals(result[0]);
+        assertTrue(expResult[0].equals(result[0]));
     }
 
     /**
@@ -140,7 +140,7 @@ public class SoumissionTest {
         int pos = 0;
         Moto expResult = new Moto(2013,"Ducati","Superbike 1199 Panigale R",1000,"PROACTIF",false,false,32000,1198);
         Moto result = soumission1.get_Moto(pos);
-        expResult.equals(result);
+        assertTrue(expResult.equals(result));
     }
 
     /**
@@ -152,7 +152,7 @@ public class SoumissionTest {
         Moto[] expResult = new Moto[1];
         expResult[0] = new Moto(2013,"Ducati","Superbike 1199 Panigale R",1000,"PROACTIF",false,false,32000,1198);
         Moto[] result = soumission1.get_Motos();
-        expResult[0].equals(result[0]);
+        assertTrue(expResult[0].equals(result[0]));
     }
 
     /**
@@ -174,7 +174,7 @@ public class SoumissionTest {
         System.out.println("get_Conducteur");
         Conducteur expResult = new Conducteur("1980-01-15","Québec","Montréal",'M', "2000-12-01", true, false, true);
         Conducteur result = soumission1.get_Conducteur();
-        expResult.equals(result);
+        assertTrue(expResult.equals(result));
     }
 
     /**

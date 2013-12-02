@@ -39,7 +39,7 @@ public class Statistique {
    private ArrayList<VehiculeStats> statsVehiculeParMarque;
    
    public Statistique() throws FileNotFoundException, IOException{
-       String StatistiqueEntree = "src/soumission/Json/StatistiqueSortie.json";
+       String StatistiqueEntree = "src/main/java/soumission/Json/StatistiqueSortie.json";
        String jsonTxt = JsonParsing.load_File_Into_String(StatistiqueEntree, "UTF-8");
 
         JSONObject rootStats = (JSONObject) JSONSerializer.toJSON(jsonTxt);
@@ -115,7 +115,7 @@ public class Statistique {
    
    public void set_endroitSauvegarder(boolean endroitFlag, String endroit) {
        if(endroitFlag == false){
-           sauvegarder_statistique("src/soumission/Json/StatistiqueSortie.json");
+           sauvegarder_statistique("src/main/java/soumission/Json/StatistiqueSortie.json");
        }else{
            sauvegarder_statistique(endroit);
        }

@@ -41,7 +41,7 @@ public class Liste {
         ToJSON(vehicule, fichierEcriture);
     }
 
-    private static JSONArray SortedMotos(JSONArray motos) {
+    protected static JSONArray SortedMotos(JSONArray motos) {
         JSONArray sortedMotos = new JSONArray();
 
         for (int i = 0; i < motos.size(); i++) {
@@ -57,7 +57,7 @@ public class Liste {
         return sortedMotos;
     }
 
-    private static JSONArray SortedVoitures(JSONArray voitures) {
+    protected static JSONArray SortedVoitures(JSONArray voitures) {
         JSONArray sortedVoitures = new JSONArray();
 
         for (int i = 0; i < voitures.size(); i++) {
@@ -72,7 +72,7 @@ public class Liste {
         return sortedVoitures;
     }
 
-    private static JSONObject Merge(JSONArray motos, JSONArray voitures) {
+    protected static JSONObject Merge(JSONArray motos, JSONArray voitures) {
         JSONArray vehicule = new JSONArray();
         JSONObject objVehicule = new JSONObject();
 
@@ -88,7 +88,7 @@ public class Liste {
         return objVehicule;
     }
 
-    public static JSONArray trier_tab_json(JSONArray array) {
+    protected static JSONArray trier_tab_json(JSONArray array) {
         JSONArray array_tri = new JSONArray();
 
         List<JSONObject> jsons = new ArrayList<JSONObject>();
@@ -118,7 +118,7 @@ public class Liste {
         return array_tri;
     }
 
-    private static void ToJSON(JSONObject vehicule, String fichierEcriture) {
+    protected static void ToJSON(JSONObject vehicule, String fichierEcriture) {
 
         try {
             FileWriter file = new FileWriter(fichierEcriture);

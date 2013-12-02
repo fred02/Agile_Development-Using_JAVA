@@ -21,6 +21,11 @@ import net.sf.json.JSONSerializer;
 
 public class Voiture extends Vehicule {
 
+    public Voiture(int annee_1, String marque_1, String modele_1, int valeur_des_options_1,
+            String burinage_1, boolean garage_interieur_1, boolean systeme_alarme_1, int valeur_Initiale_1) {
+        super(annee_1,marque_1,modele_1,valeur_des_options_1,burinage_1,garage_interieur_1,systeme_alarme_1,valeur_Initiale_1);
+    }
+    
     public Voiture(JSONObject json, int valeur_Initiale_1) {
         super(json, valeur_Initiale_1);
     }
@@ -28,7 +33,7 @@ public class Voiture extends Vehicule {
     public static int trouver_Vehicule(int annee, String marque, String modele) throws FileNotFoundException, IOException {
         int indice = -1;
 
-        String json_Txt = JsonParsing.load_File_Into_String("src/soumission/Json/vehiculesAdmissibles.json", "UTF-8");
+        String json_Txt = JsonParsing.load_File_Into_String("src/main/java/soumission/Json/vehiculesAdmissibles.json", "UTF-8");
         JSONObject root = (JSONObject) JSONSerializer.toJSON(json_Txt);
         JSONArray voitures = root.getJSONArray("voitures");
 
@@ -49,12 +54,16 @@ public class Voiture extends Vehicule {
 
     public static int valeur_Vehicule(int indice) throws FileNotFoundException, IOException {
 
-        String json_Txt = JsonParsing.load_File_Into_String("src/soumission/Json/vehiculesAdmissibles.json", "UTF-8");
+        String json_Txt = JsonParsing.load_File_Into_String("src/main/java/soumission/Json/vehiculesAdmissibles.json", "UTF-8");
         JSONObject root = (JSONObject) JSONSerializer.toJSON(json_Txt);
         JSONArray voitures = root.getJSONArray("voitures");
 
         JSONObject document = voitures.getJSONObject(indice);
 
         return document.getInt("valInit");
+    }
+    
+    public boolean equals(Voiture voiture){
+        return super.equals(voiture);
     }
 }

@@ -94,4 +94,15 @@ public class Vehicule {
     public static int valeur_Vehicule(int indice) throws FileNotFoundException, IOException {
         return 0;
     }
+    
+    public boolean equals(Vehicule vehicule){
+        return annee==vehicule.annee
+                &&marque.equals(vehicule.marque)
+                &&modele.equals(vehicule.modele)
+                &&valeur_des_options==vehicule.valeur_des_options
+                &&burinage.equals(vehicule.burinage)
+                &&garage_interieur==vehicule.garage_interieur
+                &&systeme_alarme==vehicule.systeme_alarme
+                &&valeur_Initiale==vehicule.valeur_Initiale;
+    }
 }

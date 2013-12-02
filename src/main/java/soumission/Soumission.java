@@ -22,6 +22,7 @@ import net.sf.json.JSONObject;
  * Vincent Lavoie           LAVV07068909
  */
 
+
 public class Soumission<T extends ArrayList> {
 
     private Voiture voitures[];
@@ -103,7 +104,7 @@ public class Soumission<T extends ArrayList> {
         assurable = soumission.assurable;
     }
 
-   public static boolean voitureDeLuxe (Vehicule vehicule) {
+   private static boolean voitureDeLuxe (Vehicule vehicule) {
          
         boolean assure =true ;
         int valeur = vehicule.get_Valeur_Initiale();

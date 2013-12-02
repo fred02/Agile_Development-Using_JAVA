@@ -138,4 +138,15 @@ public class Conducteur {
         }
         return true;
     }
+    
+    public boolean equals(Conducteur conducteur){
+        return  date_de_naissance.equals(conducteur.date_de_naissance)
+                &&province.equals(conducteur.province)
+                &&ville.equals(conducteur.ville)
+                &&sexe==conducteur.sexe
+                &&date_fin_cours_de_conduite.equals(conducteur.date_fin_cours_de_conduite)
+                &&cours_de_conduite_reconnus_par_CAA==conducteur.cours_de_conduite_reconnus_par_CAA
+                &&premier_contrat==conducteur.premier_contrat
+                &&membre_oiq==conducteur.membre_oiq;
+    }
 }

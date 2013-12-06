@@ -157,4 +157,37 @@ public class Soumission<T extends ArrayList> {
         Calendar date = DateParsing.stringToCalendar(date_debut);
         return date;
     }
+    
+    public boolean equals(Soumission soumission){
+        boolean voituresEg;
+        boolean motosEg;
+        if(voituresEg=(voitures.length==soumission.voitures.length))
+        {
+            for(int i=0;i<voitures.length;i++)
+            {
+                if(!voitures[i].equals(soumission.voitures[i]))
+                {
+                    voituresEg=false;
+                    break;
+                }
+            }
+        }
+        if(motosEg=(motos.length==soumission.motos.length))
+        {
+            for(int i=0;i<motos.length;i++)
+            {
+                if(!motos[i].equals(soumission.motos[i]))
+                {
+                    motosEg=false;
+                    break;
+                }
+            }
+        }
+        return  voituresEg
+                &&motosEg
+                &&conducteur.equals(soumission.conducteur)
+                &&duree_contrat==soumission.duree_contrat
+                &&date_debut.equals(soumission.date_debut)
+                &&assurable==soumission.assurable;
+    }
 }

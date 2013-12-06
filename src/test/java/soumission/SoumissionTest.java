@@ -36,7 +36,6 @@ public class SoumissionTest {
     private Conducteur conducteur;
     
     private Soumission soumission1;
-    private Soumission soumission2;
     
     @Before
     public void setUp() throws NullPointerException, FileNotFoundException, IOException{
@@ -93,6 +92,69 @@ public class SoumissionTest {
     
     @After
     public void tearDown() {
+    }
+    
+     /**
+     * Test of soumission constructor method, of class Soumission.
+     */
+    @Test
+    public void testSoumission() throws NullPointerException, FileNotFoundException, IOException{
+        System.out.println("Soumission");
+        assertNotNull(soumission1);
+        Soumission soumission2 = new Soumission(soumission1);
+        assertNotNull(soumission2);
+        assertTrue(soumission1.equals(soumission2));
+        jVoiture=new JSONObject();
+        jVoiture.put("annee",0);
+        jVoiture.put("marque","");
+        jVoiture.put("modele","");
+        jVoiture.put("valeur_des_options",0);
+        jVoiture.put("burinage","");
+        jVoiture.put("garage_interieur",false);
+        jVoiture.put("systeme_alarme",false);
+        
+        jVoitures=new JSONArray();
+        jVoitures.add(jVoiture);
+        jVoiture=new JSONObject();
+        jVoiture.put("annee",0);
+        jVoiture.put("marque","");
+        jVoiture.put("modele","");
+        jVoiture.put("valeur_des_options",0);
+        jVoiture.put("burinage","");
+        jVoiture.put("garage_interieur",false);
+        jVoiture.put("systeme_alarme",false);
+        jVoitures.add(jVoiture);
+        
+        jMoto=new JSONObject();
+        jMoto.put("annee",0);
+        jMoto.put("marque","");
+        jMoto.put("modele","");
+        jMoto.put("valeur_des_options",0);
+        jMoto.put("burinage","");
+        jMoto.put("garage_interieur",false);
+        jMoto.put("systeme_alarme",false);
+        
+        jMotos=new JSONArray();
+        jMotos.add(jMoto);
+        
+        jConducteur=new JSONObject();
+        jConducteur.put("date_de_naissance","");
+        jConducteur.put("province","");     
+        jConducteur.put("ville", "");
+        jConducteur.put("sexe","M");
+        jConducteur.put("date_fin_cours_de_conduite", "");
+        jConducteur.put("cours_de_conduite_reconnus_par_CAA", false);
+        jConducteur.put("premier_contrat", false);
+	jConducteur.put("membre_oiq", false);
+        
+        jSoumission=new JSONObject();
+        jSoumission.put("voitures",jVoitures);
+        jSoumission.put("motos",jMotos);
+        jSoumission.put("conducteur",jConducteur);
+        jSoumission.put("duree_contrat",0);
+        jSoumission.put("date_debut","");
+        Soumission soumission3 = new Soumission(jSoumission);
+        assertFalse(soumission1.equals(soumission3));
     }
 
     /**

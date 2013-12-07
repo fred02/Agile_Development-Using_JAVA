@@ -96,7 +96,7 @@ public class JsonReaderTest extends JsonReader{
     @Test
     public void testLoad_File() throws FileNotFoundException, IOException{
         System.out.println("Load_File");
-        String fichierEntree = "src/test/java/soumission/test.json";
+        String fichierEntree = "src/test/java/soumission/testEnt1.json";
         Soumission result = JsonReader.Load_File(fichierEntree);
         assertTrue(soumission1.equals(result));
     }

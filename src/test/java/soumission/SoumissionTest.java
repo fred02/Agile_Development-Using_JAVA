@@ -51,6 +51,15 @@ public class SoumissionTest {
         
         jVoitures=new JSONArray();
         jVoitures.add(jVoiture);
+        jVoiture=new JSONObject();
+        jVoiture.put("annee",2014);
+        jVoiture.put("marque","Porsche");
+        jVoiture.put("modele","911 Turbo");
+        jVoiture.put("valeur_des_options",8000);
+        jVoiture.put("burinage","PROACTIF");
+        jVoiture.put("garage_interieur",true);
+        jVoiture.put("systeme_alarme",true);
+        jVoitures.add(jVoiture);
         
         voiture=new Voiture(2014,"Porsche","911 Turbo",8000,"PROACTIF",true,true,170000);
         
@@ -116,9 +125,9 @@ public class SoumissionTest {
         jVoitures=new JSONArray();
         jVoitures.add(jVoiture);
         jVoiture=new JSONObject();
-        jVoiture.put("annee",0);
-        jVoiture.put("marque","");
-        jVoiture.put("modele","");
+        jVoiture.put("annee",2014);
+        jVoiture.put("marque","W Motors");
+        jVoiture.put("modele","Lykan HyperSport");
         jVoiture.put("valeur_des_options",0);
         jVoiture.put("burinage","");
         jVoiture.put("garage_interieur",false);
@@ -188,7 +197,7 @@ public class SoumissionTest {
     @Test
     public void testGet_Nb_Voitures() {
         System.out.println("get_Nb_Voitures");
-        int expResult = 1;
+        int expResult = 2;
         int result = soumission1.get_Nb_Voitures();
         assertEquals(expResult, result);
     }

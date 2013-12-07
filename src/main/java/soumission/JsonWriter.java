@@ -4,6 +4,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import net.sf.json.JSONObject;
 import flexjson.JSONSerializer;
+import java.io.FileNotFoundException;
 import org.apache.commons.math.util.MathUtils;
 
 /**
@@ -21,25 +22,18 @@ import org.apache.commons.math.util.MathUtils;
 
 public class JsonWriter {
 
-    public static void ecriture(boolean assurable, double total, double mensualite, String fichierSortie) {
+    public static void ecriture(boolean assurable, double total, double mensualite, String fichierSortie)throws FileNotFoundException, IOException{
         JSONObject obj = new JSONObject();
         obj.put("assurable", assurable);
         if (assurable) {
             obj.put("montant_annuel", MathUtils.round(total, 2));
             obj.put("mensualite", MathUtils.round(mensualite, 2));
         }
-
-        try {
-            FileWriter file = new FileWriter(fichierSortie);
-            JSONSerializer json = new JSONSerializer();
-            json.prettyPrint(true);
-            json.serialize(obj, file);
-            file.flush();
-            file.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+        FileWriter file = new FileWriter(fichierSortie);
+        JSONSerializer json = new JSONSerializer();
+        json.prettyPrint(true);
+        json.serialize(obj, file);
+        file.flush();
+        file.close();
     }
 }

@@ -44,7 +44,7 @@ public class JsonParsingTest extends JsonParsing{
     @Test
     public void testLoad_File_Into_String() throws FileNotFoundException, IOException {
         System.out.println("load_File_Into_String");
-        String filePath = "src/test/java/soumission/test.json";
+        String filePath = "src/test/java/soumission/testEnt1.json";
         String fileEncoding = "UTF-8";
         String result = JsonParsing.load_File_Into_String(filePath, fileEncoding);
         assertNotNull(result);

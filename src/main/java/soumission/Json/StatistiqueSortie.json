@@ -1,18 +1,18 @@
 {
-    "nombre_de_soumissions": 35,
-    "nombre_de_soumissions_non_assurables": 8,
-    "nombre_de_soumissions_assurables": 27,
-    "nombre_de_soumissions_hommes": 31,
+    "nombre_de_soumissions": 45,
+    "nombre_de_soumissions_non_assurables": 12,
+    "nombre_de_soumissions_assurables": 33,
+    "nombre_de_soumissions_hommes": 41,
     "nombre_de_soumissions_femmes": 4,
-    "nombre_de_vehicules": 203,
-    "nombre_de_voitures_assurables": 125,
-    "nombre_de_motos_assurables": 45,
-    "nombre_vehicules_demi_million": 2,
+    "nombre_de_vehicules": 223,
+    "nombre_de_voitures_assurables": 131,
+    "nombre_de_motos_assurables": 51,
+    "nombre_vehicules_demi_million": 8,
     "nombre_vehicules_million": 64,
     "vehicules_par_marque": [
         {
             "marque": "Porsche",
-            "nombre": 50
+            "nombre": 56
         },
         {
             "marque": "Ferrari",
@@ -28,7 +28,7 @@
         },
         {
             "marque": "Ducati",
-            "nombre": 45
+            "nombre": 51
         },
         {
             "marque": "Lamborghini",

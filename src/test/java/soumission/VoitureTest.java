@@ -81,4 +81,40 @@ public class VoitureTest {
         int result = Voiture.valeur_Vehicule(indice);
         assertEquals(expResult, result);
     }
+    
+    /**
+     * Test of valeur_Vehicule method, of class Voiture.
+     */
+    @Test
+    public void testValeur2_Vehicule() throws Exception {
+        System.out.println("valeur_Vehicule");
+        int indice =0;
+        int expResult = 60000;
+        int result = Voiture.valeur_Vehicule(indice);
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of valeur_Vehicule method, of class Voiture.
+     */
+    @Test
+    public void testValeur3_Vehicule() throws Exception {
+        System.out.println("valeur_Vehicule");
+        int indice =1;
+        int expResult = 72000;
+        int result = Voiture.valeur_Vehicule(indice);
+        assertEquals(expResult, result);
+    }
+    /**
+     * Test of valeur_Vehicule method, of class Voiture.
+     */
+    @Test
+    public void testValeur4_Vehicule() throws Exception {
+        System.out.println("valeur_Vehicule");
+        int indice =52;
+        int expResult = 3900000;
+        int result = Voiture.valeur_Vehicule(indice);
+        assertEquals(expResult, result);
+    }
+    
 }

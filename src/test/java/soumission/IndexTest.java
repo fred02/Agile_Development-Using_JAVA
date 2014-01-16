@@ -136,6 +136,35 @@ public class IndexTest extends Index{
         
     }
 
+    
+    
+    @Test
+    public void testMain2() throws Exception {
+        JSONObject root;
+        String jsonTxt;
+        
+        String args1[]={"src/test/java/soumission/testEnt2.json","src/test/java/soumission/testSor2.json"};
+        main(args1);
+        jsonTxt=JsonParsing.load_File_Into_String("src/test/java/soumission/testSor2.json", "UTF-8");
+        root = (JSONObject) JSONSerializer.toJSON(jsonTxt);
+        assertEquals(root.getBoolean("assurable"),true);
+        assertEquals(root.getDouble("montant_annuel"),1850000.0,0.0);
+        assertEquals(root.getDouble("mensualite"),154166.66,0.0);
+        
+        String args2[]={"src/test/java/soumission/testEnt2.json","src/test/java/soumission/testSor2.json"};
+        main(args2);
+        jsonTxt=JsonParsing.load_File_Into_String("src/test/java/soumission/testSor2.json", "UTF-8");
+        root = (JSONObject) JSONSerializer.toJSON(jsonTxt);
+        assertEquals(root.getBoolean("assurable"),true);
+        /*
+        //Avec liste
+        String args3[]={"-L",""};
+        main(args3);
+        //Avec stats
+        String args4[]={"-S",""};
+        main(args4);*/
+        
+    }
 
     @Test
     public void testOptions() throws Exception {

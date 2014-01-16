@@ -1,36 +1,117 @@
 {
     "voitures": [
     {
-        "annee": 0,
-        "marque": "",
-        "modele": "",
-        "valeur_des_options": 0,
-        "burinage": "",
+        "annee": 2014,
+        "marque": "Porsche",
+        "modele": "Cayenne Turbo S",
+        "valeur_des_options": 10000,
+        "burinage": "PROACTIF",
+        "garage_interieur": false,
+        "systeme_alarme": true
+    },
+    {
+        "annee": 2012,
+        "marque": "Ferrari",
+        "modele": "458 Spider F1",
+        "valeur_des_options": 15000,
+        "burinage": "Sherlock",
+        "garage_interieur": true,
+        "systeme_alarme": true
+    },
+    {
+        "annee": 2014,
+        "marque": "Maserati",
+        "modele": "Quattroporte Q4 AWD",
+        "valeur_des_options": 7000,
+        "burinage": "Sherlock",
+        "garage_interieur": true,
+        "systeme_alarme": true
+    },
+    {
+        "annee": 2014,
+        "marque": "Porsche",
+        "modele": "Boxter",
+        "valeur_des_options": 6000,
+        "burinage": "PROACTIF",
         "garage_interieur": false,
         "systeme_alarme": false
+    },
+    {
+        "annee": 2014,
+        "marque": "Lamborghini",
+        "modele": "Reventon",
+        "valeur_des_options": 6000,
+        "burinage": "PROACTIF",
+        "garage_interieur": true,
+        "systeme_alarme": true
+    },
+    {
+        "annee": 2014,
+        "marque": "Koenigsegg",
+        "modele": "Agera R",
+        "valeur_des_options": 6000,
+        "burinage": "PROACTIF",
+        "garage_interieur": true,
+        "systeme_alarme": true
+    },
+    {
+        "annee": 2014,
+        "marque": "Aston Martin",
+        "modele": "One-77",
+        "valeur_des_options": 6000,
+        "burinage": "PROACTIF",
+        "garage_interieur": true,
+        "systeme_alarme": true
+    },
+    {
+        "annee": 2014,
+        "marque": "Pagani",
+        "modele": "Huayra",
+        "valeur_des_options": 6000,
+        "burinage": "PROACTIF",
+        "garage_interieur": true,
+        "systeme_alarme": true
+    },
+    {
+        "annee": 2014,
+        "marque": "Bugatti",
+        "modele": "Veyron Super Sport",
+        "valeur_des_options": 6000,
+        "burinage": "PROACTIF",
+        "garage_interieur": true,
+        "systeme_alarme": true
+    },
+    {
+        "annee": 2014,
+        "marque": "W Motors",
+        "modele": "Lykan HyperSport",
+        "valeur_des_options": 6000,
+        "burinage": "PROACTIF",
+        "garage_interieur": true,
+        "systeme_alarme": true
     }
   ],
    "motos": [
     {
-        "annee": 0,
-        "marque": "",
-        "modele": "",
-        "valeur_des_options": 0,
-        "burinage": "",
-        "garage_interieur": false,
-        "systeme_alarme": false
+        "annee": 2013,
+        "marque": "Ducati",
+        "modele": "Hypermotard SP",
+        "valeur_des_options": 3000,
+        "burinage": null,
+        "garage_interieur": true,
+        "systeme_alarme": true
     }
   ],
     "conducteur": {
-        "date_de_naissance": "1980-01-15",
+        "date_de_naissance": "1970-01-15",
         "province": "Québec",
-        "ville": "Montréal",
-        "sexe": "M",
-        "date_fin_cours_de_conduite": "2000-12-01",
+        "ville": "Alma",
+        "sexe": "F",
+        "date_fin_cours_de_conduite": "1995-12-01",
         "cours_de_conduite_reconnus_par_CAA": true,
         "premier_contrat": false,
-	"membre_oiq": true
+	"membre_oiq": false
     },
-    "duree_contrat": 2,
-    "date_debut": "2014-01-04"
+    "duree_contrat": 3,
+    "date_debut": "2014-01-14"
 }

@@ -6,6 +6,11 @@
 
 package soumission;
 
+import soumissionAss.Vehicule;
+import soumissionAss.JsonParsing;
+import soumissionAss.Soumission;
+import soumissionAss.Conducteur;
+import soumissionAss.Index;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,7 +21,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import static soumission.Index.main;
+import static soumissionAss.Index.main;
 
 /**
  * Cours: INF2015 Enseignant: Jacques Berger

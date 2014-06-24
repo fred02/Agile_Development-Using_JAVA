@@ -6,6 +6,7 @@
 
 package soumission;
 
+import soumissionAss.Conducteur;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -96,13 +97,15 @@ public class ConducteurTest {
     @Test
     public void testGetDate_fin_cours_de_conduite() {
         assertEquals("2008-03-01",CT1.getDate_fin_cours_de_conduite());
+      
     }
 
     @Test
     public void testGet_Experience() {
         assertEquals(5,CT1.get_Experience());
+        
     }
-
+    
     @Test
     public void testIsCours_de_conduite_reconnus_par_CAA() {
         assertTrue(CT1.isCours_de_conduite_reconnus_par_CAA());

@@ -4,6 +4,7 @@
  */
 package soumission;
 
+import soumissionAss.Voiture;
 import net.sf.json.JSONObject;
 import org.junit.After;
 import org.junit.AfterClass;

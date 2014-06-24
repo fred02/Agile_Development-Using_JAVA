@@ -1,42 +1,54 @@
 {
-    "nombre_de_soumissions": 45,
-    "nombre_de_soumissions_non_assurables": 12,
-    "nombre_de_soumissions_assurables": 33,
-    "nombre_de_soumissions_hommes": 41,
-    "nombre_de_soumissions_femmes": 4,
-    "nombre_de_vehicules": 223,
-    "nombre_de_voitures_assurables": 131,
-    "nombre_de_motos_assurables": 51,
-    "nombre_vehicules_demi_million": 8,
-    "nombre_vehicules_million": 64,
+    "nombre_de_soumissions": 94,
+    "nombre_de_soumissions_non_assurables": 29,
+    "nombre_de_soumissions_assurables": 65,
+    "nombre_de_soumissions_hommes": 81,
+    "nombre_de_soumissions_femmes": 13,
+    "nombre_de_vehicules": 402,
+    "nombre_de_voitures_assurables": 244,
+    "nombre_de_motos_assurables": 83,
+    "nombre_vehicules_demi_million": 31,
+    "nombre_vehicules_million": 118,
     "vehicules_par_marque": [
         {
             "marque": "Porsche",
-            "nombre": 56
+            "nombre": 97
         },
         {
             "marque": "Ferrari",
-            "nombre": 27
+            "nombre": 36
         },
         {
             "marque": "Maserati",
-            "nombre": 3
+            "nombre": 12
         },
         {
             "marque": "Pagani",
-            "nombre": 3
+            "nombre": 12
         },
         {
             "marque": "Ducati",
-            "nombre": 51
+            "nombre": 83
         },
         {
             "marque": "Lamborghini",
-            "nombre": 21
+            "nombre": 30
         },
         {
             "marque": "W Motors",
-            "nombre": 21
+            "nombre": 30
+        },
+        {
+            "marque": "Koenigsegg",
+            "nombre": 9
+        },
+        {
+            "marque": "Aston Martin",
+            "nombre": 9
+        },
+        {
+            "marque": "Bugatti",
+            "nombre": 9
         }
     ]
 }

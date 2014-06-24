@@ -4,6 +4,11 @@
  */
 package soumission;
 
+import soumissionAss.Soumission;
+import soumissionAss.Conducteur;
+import soumissionAss.Moto;
+import soumissionAss.DateParsing;
+import soumissionAss.Voiture;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Calendar;
